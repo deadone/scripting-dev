@@ -1,6 +1,4 @@
 # scripting-dev
-<B>scripts and programs I wrote and found useful</B>
-
 
 <B>idump.c</B> - hexdump written in c
 
