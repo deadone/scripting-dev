@@ -4,6 +4,7 @@
 #include<ctype.h>
 // dead1
 // Hexdump taking a command line argument in the form of a file.
+// eg.   idump example.exe
 
 int main(argc,filename)
 int argc;
