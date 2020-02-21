@@ -7,3 +7,5 @@
 <B>string-sort.py</B> - python3 script to fabricate random strings and allow substring indexing for buffer overflows
 
 <B>wtmp-dump.py</B> - python3 script to read wtmp file and show user logins on linux systems
+
+<B>redteam-quicknotes.txt</B> - quick reference
