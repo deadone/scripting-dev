@@ -23,13 +23,13 @@ class color:
 
 def dump(file_name):
     the_file = open(file_name, "rb")
-    print(color.red, "*** Dead1's Hex Dump ***", color.end)
     file_string = the_file.read()
     hex_list = ['{:02x}'.format(b) for b in file_string]
     int_list = list(file_string)
     file_length = len(hex_list)
     combined_string = ""
     off_set = 0
+    print(color.red, "*** Dead1's Hex Dump ***", color.end)
     for _ in hex_list:
         print(f"[{format(off_set, 'x').rjust(8, '0')}]", end="\t")
         for count in range(0, 16):
