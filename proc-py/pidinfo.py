@@ -32,7 +32,9 @@ while loop == 1:
     else:
         print("Process Not Running.")
         exit()
-    print("Dead1's Process Viewer:")
+    LinuxProcList.proclistPlus()
+    print()
+    print("Process Viewer:")
     print("name:".rjust(12, " "), process.name().rjust(18, " "))
     print("state:".rjust(12, " "), process.state().rjust(18, " "))
     print("pid:".rjust(12, " "), process.pid().rjust(18, " "))
@@ -49,8 +51,6 @@ while loop == 1:
     print("arg_end:".rjust(12, " "), process.argEnd().rjust(18, " "))
     print("env_start:".rjust(12, " "), process.envStart().rjust(18, " "))
     print("env_end:".rjust(12, " "), process.envEnd().rjust(18, " "))
-    print()
-    LinuxProcList.proclistPlus()
     print()
     redo = str(input("Do you want to select another process? [y/n]: "))
     if redo == "y":
