@@ -16,7 +16,6 @@ class color:
 
 process = LinuxProcList.proclist()
 arrows = "|-------------->"
-dashes = "----------------"
 spaces = "                "
 blacklist = []
 
