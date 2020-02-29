@@ -50,7 +50,7 @@ class LinuxProcList:
         counter = 0
         print(len(processes),"Current Running Proccesses:")
         for x in range(len(processes)):
-            if counter == 8:
+            if counter == 6:
                 print()
                 counter = 1
             else:
