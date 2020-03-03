@@ -6,8 +6,9 @@
 from deadlib import *
 
 def recursiveChild(x, blacklist, repeat):
-    arrows = "|-------------->"
-    spaces = "                "
+    arrows = "\__________"
+    spaces = "           "
+    col = ""
     if LinuxProcList.children(x) != None:
         repeat += 1
         for y in LinuxProcList.children(x):
@@ -24,11 +25,15 @@ def recursiveChild(x, blacklist, repeat):
 process = LinuxProcList.proclist()
 blacklist = []
 
+print("Dead1's PID Process Tree:")
 for x in process:
+    repeat = 0
+    col = colrep(repeat)
     if str(x) not in blacklist:
-        print("|-------------->", str(x).ljust(8, " "), LinuxProcList.getName(x).ljust(20, " "),color.nc, end="")
+        blacklist.append(x)
+        print("\__________", str(x).ljust(8, " "), LinuxProcList.getName(x).ljust(20, " "), end="")
         if LinuxProcList.cmdline(x) != None:
             print(LinuxProcList.cmdline(x))
         else:
             print()
-        blacklist.append(recursiveChild(x, blacklist, 0))
+        blacklist.append(recursiveChild(x, blacklist, repeat))
