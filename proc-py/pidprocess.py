@@ -17,7 +17,7 @@ def recursiveChild(x, blacklist, repeat):
                 print(LinuxProcList.cmdline(y))
             else:
                 print()
-            recursiveChild(y, blacklist, repeat)
+            blacklist.append(recursiveChild(y, blacklist, repeat))
     return blacklist
 
 
@@ -31,4 +31,4 @@ for x in process:
             print(LinuxProcList.cmdline(x))
         else:
             print()
-        blacklist = recursiveChild(x, blacklist, 0)
+        blacklist.append(recursiveChild(x, blacklist, 0))
