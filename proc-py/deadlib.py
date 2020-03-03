@@ -22,8 +22,19 @@ class color:
     lightcyan = "\x1b[96m"
     white = "\x1b[97m"
     bold = '\033[1m' # bold
-    uline = '\033[4m' #underline
     nc ='\x1b[0m' # No Color
+
+def colrep(repeat):
+    if repeat == 0: return color.red
+    if repeat == 1: return color.blue
+    if repeat == 2: return color.lightblue
+    if repeat == 3: return color.yellow
+    if repeat == 4: return color.green
+    if repeat == 5: return color.cyan
+    if repeat == 6: return color.lightcyan
+    if repeat == 7: return color.pink
+    if repeat > 7: return color.nc
+
 
 class LinuxProcList:
     def linuxGetProc():
@@ -68,14 +79,14 @@ class LinuxProcList:
     def proclistPlus():
         processes = LinuxProcList.linuxGetProc()
         counter = 0
-        print(len(processes), "Current Running Proccesses:")
+        print(color.bold + color.red + str(len(processes)), "Current Running Proccesses:" + color.nc)
         for x in range(len(processes)):
-            if counter == 6:
+            if counter == 4:
                 print()
                 counter = 1
             else:
                 counter += 1
-            print(str(processes[x]).rjust(7, " "), LinuxProcList.getName(processes[x])[0:12].rjust(14, " "), end=" ")
+            print((color.blue + str(processes[x]) + color.nc + " ").ljust(16, "-") + ">>", color.bold + LinuxProcList.getName(processes[x])[0:15].ljust(15, " "),color.nc, end="  ")
         print()
 
     def cmdline(pid):
