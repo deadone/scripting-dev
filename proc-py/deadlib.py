@@ -4,6 +4,26 @@
 # Details: class library
 import os
 
+class color:
+    black = "\x1b[30m"
+    red = "\x1b[31m"
+    green = "\x1b[32m"
+    yellow = "\x1b[33m"
+    blue = "\x1b[34m"
+    magenta = "\x1b[35m"
+    cyan = "\x1b[36m"
+    lightgray = "\x1b[37m"
+    darkgray = "\x1b[90m"
+    lightred = "\x1b[91m"
+    lightgreen = "\x1b[92m"
+    lightyellow = "\x1b[93m"
+    lightblue = "\x1b[94m"
+    pink = "\x1b[95m"
+    lightcyan = "\x1b[96m"
+    white = "\x1b[97m"
+    bold = '\033[1m' # bold
+    uline = '\033[4m' #underline
+    nc ='\x1b[0m' # No Color
 
 class LinuxProcList:
     def linuxGetProc():
@@ -25,7 +45,7 @@ class LinuxProcList:
 
     def getName(pid):
         pid = str(pid)
-        name = "NoName"
+        name = "No Name"
         if LinuxProcList.verifyPid(pid):
             statusStr = "/proc/" + pid + "/status"
             status = open(statusStr, "r")
@@ -48,14 +68,14 @@ class LinuxProcList:
     def proclistPlus():
         processes = LinuxProcList.linuxGetProc()
         counter = 0
-        print(len(processes),"Current Running Proccesses:")
+        print(len(processes), "Current Running Proccesses:")
         for x in range(len(processes)):
             if counter == 6:
                 print()
                 counter = 1
             else:
                 counter += 1
-            print(str(processes[x]).rjust(7, " "),LinuxProcList.getName(processes[x])[0:12].rjust(14, " "), end=" ")
+            print(str(processes[x]).rjust(7, " "), LinuxProcList.getName(processes[x])[0:12].rjust(14, " "), end=" ")
         print()
 
     def cmdline(pid):
@@ -63,7 +83,9 @@ class LinuxProcList:
         if LinuxProcList.verifyPid(pid):
             procString = "cat /proc/" + pid + "/cmdline"
             if len(os.popen(procString).read()) != 0:
-                return os.popen(procString).read()
+                cmd = os.popen(procString).read()
+                cmd = cmd.replace("\0", " ")
+                return cmd
             else:
                 return None
         else:
@@ -72,20 +94,14 @@ class LinuxProcList:
     def children(pid):
         pid = str(pid)
         if LinuxProcList.verifyPid(pid):
-            procString = "ps --ppid " + pid
-            if os.popen(procString).read() != 0:
+            procString = "cat /proc/" + pid + "/task/" + pid + "/children"
+            if os.popen(procString).read() != "":
                 children = os.popen(procString).read()
-                if len(children) <= 30:
-                    return None
-                else:
-                    children = children.split("\n")
-                    newchildren = []
-                    for x in range(1, len(children)):
-                        children[x] = children[x][0:8]
-                        children[x] = children[x].replace(" ", "")
-                        newchildren.append(children[x].replace("  ", ""))
-                    newchildren.pop()
-                    return newchildren
+                children = children.split(" ")
+                children.pop()
+                return children
+            else:
+                return None
         else:
             return None
 
