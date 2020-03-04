@@ -1,0 +1,45 @@
+VIM Cheat Sheet - dead1
+
+Vim Starts in Command Mode
+Type "i" (for insert)
+To exit insert mode hit ESC
+
+:ZZ 		quit current
+:q		exit vim
+:w 		write the file you are using
+:%!xxd		read file as hex
+:%!xxd -r	stop reading file as hex
+			
+Keypad Interaction:
+			^
+			K
+			
+	H	<	J	>	L
+
+0 - moves cursor to begining of line
+$ - moves the cursor to the end of a line
+w - move forward one word
+b - move backwards one word
+G - move to the end of the file
+gg - move to the beginning of the file
+`. - move to the last edit
+d -  starts the delete operation.
+dw - delete a word.
+d0 - delete to the beginning of a line.
+d$ - delete to the end of a line.
+dgg - delete to the beginning of the file.
+dG - delete to the end of the file.
+u - undo the last operation.
+Ctrl-r - redo the last undo.
+/text - search for text in the document, going forward.
+n - move the cursor to the next instance of the text from the last search.
+N - move the cursor to the previous instance of the text from the last search.
+?text - search for text in the document, going backwards.
+:%s/text/replacement text/g - search through the entire document for text and replace it with replacement text.
+:%s/text/replacement text/gc - search through the entire document and confirm before replacing text.
+v - highlight one character at a time.
+V - highlight one line at a time.
+Ctrl-v - highlight by columns.
+p - paste text after the current line.
+P - paste text on the current line.
+y - yank text into the copy buffer.
