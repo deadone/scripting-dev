@@ -6,15 +6,14 @@
 from deadlib import *
 
 def recursiveChild(x, blacklist, repeat):
-    arrows = "\__________"
+    arrows = "\_________ "
     spaces = "           "
-    col = ""
     if LinuxProcList.children(x) != None:
         repeat += 1
         col = colrep(repeat)
         for y in LinuxProcList.children(x):
             blacklist.append(y)
-            print(col + spaces * repeat + arrows,str(y).ljust(8, " "), LinuxProcList.getName(y).ljust(20, " "), end="")
+            print(spaces * repeat + col + arrows + str(y).ljust(8, " ") +LinuxProcList.getName(y).ljust(20, " "), end="")
             if LinuxProcList.cmdline(y) != None:
                 print(LinuxProcList.cmdline(y) + color.nc)
             else:
@@ -32,7 +31,7 @@ for x in process:
     col = colrep(repeat)
     if str(x) not in blacklist:
         blacklist.append(x)
-        print(col + "\__________", str(x).ljust(8, " "), LinuxProcList.getName(x).ljust(20, " "), end="")
+        print(col + "\__________" + str(x).ljust(8, " ") + LinuxProcList.getName(x).ljust(20, " "), end="")
         if LinuxProcList.cmdline(x) != None:
             print(LinuxProcList.cmdline(x) + color.nc)
         else:
