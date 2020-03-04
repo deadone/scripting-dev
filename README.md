@@ -15,4 +15,5 @@
 - <b>deadlib</b> - contains classes and methods for proc-py functionality<br>
 
 <b>other</b> - Useful Notes, etc.</b>
-- <B>redteam-quicknotes.txt</B> - quick reference
+- <B>redteam-quicknotes.txt</B> - red team quick reference
+- <b>vim</b> - vim reference
