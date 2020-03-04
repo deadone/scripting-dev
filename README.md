@@ -13,7 +13,7 @@
 <b>c-dev</b> - C Development Folder<br>
 - <B>idump.c</B> - hexdump written in c<br>
 <br>
-<b>other</b> - Useful Notes, etc.</b>
-- <B>redteam-quicknotes.txt</B> - red team quick reference
-- <b>vim</b> - vim reference
+<b>other</b> - Useful Notes, etc.</b><br>
+- <B>redteam-quicknotes.txt</B> - red team quick reference<br>
+- <b>vim</b> - vim reference<br>
 <br>
