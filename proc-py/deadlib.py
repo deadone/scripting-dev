@@ -24,7 +24,7 @@ class color:
     bold = '\033[1m' # bold
     nc ='\x1b[0m' # No Color
 
-def colrep(repeat):
+def color_repeat(repeat):
     if repeat == 0: return color.red
     if repeat == 1: return color.blue
     if repeat == 2: return color.lightblue
@@ -36,30 +36,31 @@ def colrep(repeat):
     if repeat > 7: return color.nc
 
 
-class LinuxProcList:
-    def linuxGetProc():
-        proc = os.popen('ls /proc/').read()
-        procList = proc.split("\n")
-        newProc = []
-        for x in range(len(procList)):
-            if procList[x].isdigit():
-                newProc.append(int(procList[x]))
-        newProc.sort()
-        return newProc
+# class for processes
+class linux_proc_list:
+    def linux_get_proc():
+        proc_read = os.popen('ls /proc/').read()
+        proc_list = proc_read.split("\n")
+        new_proc_list = []
+        for x in range(len(proc_list)):
+            if proc_list[x].isdigit():
+                new_proc_list.append(int(proc_list[x]))
+        new_proc_list.sort()
+        return new_proc_list
 
-    def verifyPid(pid):
+    def verify_pid(pid):
         pid = str(pid)
-        processes = LinuxProcList.linuxGetProc()
+        processes = linux_proc_list.linux_get_proc()
         for x in range(len(processes)):
             if pid in str(processes[x]):
                 return True
 
-    def getName(pid):
+    def get_name(pid):
         pid = str(pid)
         name = "No Name"
-        if LinuxProcList.verifyPid(pid):
-            statusStr = "/proc/" + pid + "/status"
-            status = open(statusStr, "r")
+        if linux_proc_list.verify_pid(pid):
+            status_string = "/proc/" + pid + "/status"
+            status = open(status_string, "r")
             status = status.read()
             status = status.split("\n")
             for x in range(len(status) - 1):
@@ -73,11 +74,11 @@ class LinuxProcList:
         else:
             return name
 
-    def proclist():
-        return LinuxProcList.linuxGetProc()
+    def proc_list():
+        return linux_proc_list.linux_get_proc()
 
-    def proclistPlus():
-        processes = LinuxProcList.linuxGetProc()
+    def proc_list_plus():
+        processes = linux_proc_list.linux_get_proc()
         counter = 0
         print(color.bold + color.red + str(len(processes)), "Current Running Proccesses:" + color.nc)
         for x in range(len(processes)):
@@ -86,15 +87,16 @@ class LinuxProcList:
                 counter = 1
             else:
                 counter += 1
-            print((color.blue + str(processes[x]) + color.nc + " ").ljust(16, "-") + ">>", color.bold + LinuxProcList.getName(processes[x])[0:15].ljust(15, " "),color.nc, end="  ")
+            print((color.blue + str(processes[x]) + color.nc + " ").ljust(16, "-") + ">>",
+                  color.bold + linux_proc_list.get_name(processes[x])[0:15].ljust(15, " "), color.nc, end="  ")
         print()
 
-    def cmdline(pid):
+    def cmd_line(pid):
         pid = str(pid)
-        if LinuxProcList.verifyPid(pid):
-            procString = "cat /proc/" + pid + "/cmdline"
-            if len(os.popen(procString).read()) != 0:
-                cmd = os.popen(procString).read()
+        if linux_proc_list.verify_pid(pid):
+            proc_string = "cat /proc/" + pid + "/cmdline"
+            if len(os.popen(proc_string).read()) != 0:
+                cmd = os.popen(proc_string).read()
                 cmd = cmd.replace("\0", " ")
                 return cmd
             else:
@@ -104,10 +106,10 @@ class LinuxProcList:
 
     def children(pid):
         pid = str(pid)
-        if LinuxProcList.verifyPid(pid):
-            procString = "cat /proc/" + pid + "/task/" + pid + "/children"
-            if os.popen(procString).read() != "":
-                children = os.popen(procString).read()
+        if linux_proc_list.verify_pid(pid):
+            proc_string = "cat /proc/" + pid + "/task/" + pid + "/children"
+            if os.popen(proc_string).read() != "":
+                children = os.popen(proc_string).read()
                 children = children.split(" ")
                 children.pop()
                 return children
@@ -117,96 +119,173 @@ class LinuxProcList:
             return None
 
 
-class LinuxProcess:
-    def __init__(self, pidStr):
-        statStr = "/proc/" + pidStr + "/stat"
-        statusStr = "/proc/" + pidStr + "/status"
-        self.stat = open(statStr, "r")
-        self.stat = self.stat.read()
-        self.status = open(statusStr, "r")
-        self.status = self.status.read()
-        self.statList = self.stat.split(" ")
-        self.statusList = self.status.split("\n")
-        for x in range(len(self.statusList) - 1):
-            self.statusList[x] = self.statusList[x].split("\t")
-            self.statusList[x][1] = self.statusList[x][1].replace(" ", "")
-
-    def name(self):
-        name = "error."
-        for x in range(len(self.statusList)):
-            if 'Name:' in self.statusList[x]:
-                name = self.statusList[x][1]
-                break
-        return name
+# object class for processes and stat file
+class linux_process:
+    def __init__(self, process_pid):
+        if linux_proc_list.verify_pid(process_pid):
+            stat_str = "/proc/" + str(process_pid) + "/stat"
+            self.stat = open(stat_str, "r")
+            self.stat = self.stat.read()
+            self.stat_list = self.stat.split(" ")
+            if len(self.stat_list) == 53:
+                self.stat_list[1] += " " + self.stat_list[2]
+                self.stat_list.pop(2)
+        else:
+            print("ERROR. Invalid PID.")
+            exit(-1)
 
     def pid(self):
-        pid = "error."
-        for x in range(len(self.statusList)):
-            if 'Pid:' in self.statusList[x]:
-                pid = self.statusList[x][1]
-                break
-        return pid
+        return self.stat_list[0]
+
+    def name(self):
+        return self.stat_list[1][1:-1]
 
     def state(self):
-        state = "error."
-        for x in range(len(self.statusList)):
-            if 'State:' in self.statusList[x]:
-                state = self.statusList[x][1]
-                break
-        return state
+        return self.stat_list[2]
 
     def ppid(self):
-        ppid = "error."
-        for x in range(len(self.statusList)):
-            if 'PPid:' in self.statusList[x]:
-                ppid = self.statusList[x][1]
-                break
-        return ppid
+        return self.stat_list[3]
+
+    def process_gid(self):
+        return self.stat_list[4]
+
+    def session(self):
+        return self.stat_list[5]
+
+    def tty_control(self):
+        return self.stat_list[6]
+
+    def control_gid(self):
+        return self.stat_list[7]
+
+    def flags(self):
+        return self.stat_list[8]
+
+    def minor_faults(self):
+        return self.stat_list[9]
+
+    def child_minor_faults(self):
+        return self.stat_list[10]
+
+    def maj_faults(self):
+        return self.stat_list[11]
+
+    def child_maj_faults(self):
+        return self.stat_list[12]
+
+    def user_time(self):
+        return self.stat_list[13]
+
+    def kernel_time(self):
+        return self.stat_list[14]
+
+    def child_wait_time(self):
+        return self.stat_list[15]
+
+    def child_kernel_time(self):
+        return self.stat_list[16]
+
+    def priority(self):
+        return self.stat_list[17]
+
+    def nice(self):
+        return self.stat_list[18]
+
+    def num_threads(self):
+        return self.stat_list[19]
+
+    def real_value(self):
+        return self.stat_list[20]
+
+    def start_time(self):
+        return self.stat_list[21]
+
+    def virtual_size(self):
+        return self.stat_list[22]
 
     def rss(self):
-        rss = self.statList[23]
-        return hex(int(rss))
+        return self.stat_list[23]
 
-    def rssLimit(self):
-        rssLimit = self.statList[24]
-        return hex(int(rssLimit))
+    def rss_limit(self):
+        return self.stat_list[24]
 
-    def startCode(self):
-        startCode = self.statList[25]
-        return hex(int(startCode))
+    def start_code(self):
+        return self.stat_list[25]
 
-    def endCode(self):
-        endCode = self.statList[26]
-        return hex(int(endCode))
+    def end_code(self):
+        return self.stat_list[26]
 
-    def stackStart(self):
-        stackStart = self.statList[27]
-        return hex(int(stackStart))
+    def stack_start(self):
+        return self.stat_list[27]
 
-    def startData(self):
-        startData = self.statList[44]
-        return hex(int(startData))
+    def stack_pointer(self):
+        return self.stat_list[28]
 
-    def endData(self):
-        endData = self.statList[45]
-        return hex(int(endData))
+    def instruction_pointer(self):
+        return self.stat_list[29]
 
-    def startBrk(self):
-        startBrk = self.statList[46]
-        return hex(int(startBrk))
+    def pending_signal(self):
+        return self.stat_list[30]
 
-    def argStart(self):
-        argStart = self.statList[47]
-        return hex(int(argStart))
+    def blocked_signals(self):
+        return self.stat_list[31]
 
-    def argEnd(self):
-        argEnd = self.statList[48]
-        return hex(int(argEnd))
+    def sig_ignore(self):
+        return self.stat_list[32]
 
-    def envStart(self):
-        envStart = self.statList[49]
-        return hex(int(envStart))
+    def sig_catch(self):
+        return self.stat_list[33]
 
-    def envEnd(self):
-        envEnd = self.statList[50]
-        return hex(int(envEnd))
+    def wait_channel(self):
+        return self.stat_list[34]
+
+    def swapped_pages(self):
+        return self.stat_list[35]
+
+    def child_swapped_pages(self):
+        return self.stat_list[36]
+
+    def exit_signal(self):
+        return self.stat_list[37]
+
+    def last_processor(self):
+        return self.stat_list[38]
+
+    def real_time_priority(self):
+        return self.stat_list[39]
+
+    def policy(self):
+        return self.stat_list[40]
+
+    def io_blocks(self):
+        return self.stat_list[41]
+
+    def guest_time(self):
+        return self.stat_list[42]
+
+    def child_guest_time(self):
+        return self.stat_list[43]
+
+    def start_data(self):
+        return self.stat_list[44]
+
+    def end_data(self):
+        return self.stat_list[45]
+
+    def start_brk(self):
+        return self.stat_list[46]
+
+    def arg_start(self):
+        return self.stat_list[47]
+
+    def arg_end(self):
+        return self.stat_list[48]
+
+    def env_start(self):
+        return self.stat_list[49]
+
+    def env_end(self):
+        return self.stat_list[50]
+
+    def exit_code(self):
+        return self.stat_list[51]
