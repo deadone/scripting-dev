@@ -18,8 +18,7 @@ if len(sys.argv) == 2:
 else:
     pid = str(os.getpid())
 
-loop = 1
-while loop == 1:
+while(1):
     linux_proc_list.proc_list_plus()
     linux_proc_list.process_viewer(pid)
     redo = str(input("\nDo you want to select another process? [y/n]: "))
