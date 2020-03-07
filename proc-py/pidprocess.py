@@ -5,6 +5,7 @@
 
 from deadlib import *
 
+
 def recursive_child(x, blacklist, repeat):
     arrows = "\_________ "
     spaces = "           "
