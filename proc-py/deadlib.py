@@ -37,7 +37,7 @@ def color_repeat(repeat):
 
 
 # class for processes
-class linux_proc_list:
+class linux_proc:
     def get_proc():
         proc_read = os.popen('ls /proc/').read()
         proc_list = proc_read.split("\n")
@@ -50,7 +50,7 @@ class linux_proc_list:
 
     def verify_pid(pid):
         pid = str(pid)
-        processes = linux_proc_list.get_proc()
+        processes = linux_proc.get_proc()
         for x in range(len(processes)):
             if pid in str(processes[x]):
                 return True
@@ -58,7 +58,7 @@ class linux_proc_list:
     def get_name(pid):
         pid = str(pid)
         name = "No Name"
-        if linux_proc_list.verify_pid(pid):
+        if linux_proc.verify_pid(pid):
             status_string = "/proc/" + pid + "/status"
             status = open(status_string, "r")
             status = status.read()
@@ -75,10 +75,10 @@ class linux_proc_list:
             return name
 
     def proc_list():
-        return linux_proc_list.get_proc()
+        return linux_proc.get_proc()
 
     def proc_list_plus():
-        processes = linux_proc_list.get_proc()
+        processes = linux_proc.get_proc()
         counter = 0
         print(color.bold + color.red + str(len(processes)), "Current Running Proccesses:" + color.nc)
         for x in range(len(processes)):
@@ -88,12 +88,12 @@ class linux_proc_list:
             else:
                 counter += 1
             print((color.blue + str(processes[x]) + color.nc + " ").ljust(16, "-") + ">>",
-                  color.bold + linux_proc_list.get_name(processes[x])[0:15].ljust(15, " "), color.nc, end="  ")
+                  color.bold + linux_proc.get_name(processes[x])[0:15].ljust(15, " "), color.nc, end="  ")
         print()
 
     def cmd_line(pid):
         pid = str(pid)
-        if linux_proc_list.verify_pid(pid):
+        if linux_proc.verify_pid(pid):
             proc_string = "cat /proc/" + pid + "/cmdline"
             if len(os.popen(proc_string).read()) != 0:
                 cmd = os.popen(proc_string).read()
@@ -106,7 +106,7 @@ class linux_proc_list:
 
     def children(pid):
         pid = str(pid)
-        if linux_proc_list.verify_pid(pid):
+        if linux_proc.verify_pid(pid):
             proc_string = "cat /proc/" + pid + "/task/" + pid + "/children"
             if os.popen(proc_string).read() != "":
                 children = os.popen(proc_string).read()
@@ -119,7 +119,7 @@ class linux_proc_list:
             return None
 
     def process_viewer(pid):
-        if linux_proc_list.verify_pid(pid):
+        if linux_proc.verify_pid(pid):
             process = linux_process(pid)
             print()
             print("name:".rjust(12, " "), process.name().rjust(18, " "))
@@ -145,7 +145,7 @@ class linux_proc_list:
 # object class for processes and stat file
 class linux_process:
     def __init__(self, process_pid):
-        if linux_proc_list.verify_pid(process_pid):
+        if linux_proc.verify_pid(process_pid):
             stat_str = "/proc/" + str(process_pid) + "/stat"
             self.stat = open(stat_str, "r")
             self.stat = self.stat.read()
