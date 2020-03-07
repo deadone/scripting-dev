@@ -5,24 +5,24 @@
 
 from deadlib import *
 
-def recursiveChild(x, blacklist, repeat):
+def recursive_child(x, blacklist, repeat):
     arrows = "\_________ "
     spaces = "           "
     col = ""
-    if LinuxProcList.children(x) != None:
+    if linux_proc_list.children(x) != None:
         repeat += 1
-        for y in LinuxProcList.children(x):
+        for y in linux_proc_list.children(x):
             blacklist.append(y)
-            print(spaces * repeat + arrows + str(y).ljust(8, " ") + LinuxProcList.getName(y).ljust(20, " "), end="")
-            if LinuxProcList.cmdline(y) != None:
-                print(LinuxProcList.cmdline(y))
+            print(spaces * repeat + arrows + str(y).ljust(8, " ") + linux_proc_list.get_name(y).ljust(20, " "), end="")
+            if linux_proc_list.cmd_line(y) != None:
+                print(linux_proc_list.cmd_line(y))
             else:
                 print()
-            blacklist.append(recursiveChild(y, blacklist, repeat))
+            blacklist.append(recursive_child(y, blacklist, repeat))
     return blacklist
 
 
-process = LinuxProcList.proclist()
+process = linux_proc_list.proc_list()
 blacklist = []
 
 print("Dead1's PID Process Tree:")
@@ -31,10 +31,10 @@ for x in process:
     col = colrep(repeat)
     if str(x) not in blacklist:
         blacklist.append(x)
-        print("\__________" + str(x).ljust(8, " ") + LinuxProcList.getName(x).ljust(20, " "), end="")
-        if LinuxProcList.cmdline(x) != None:
-            print(LinuxProcList.cmdline(x))
+        print("\__________" + str(x).ljust(8, " ") + linux_proc_list.get_name(x).ljust(20, " "), end="")
+        if linux_proc_list.cmd_line(x) != None:
+            print(linux_proc_list.cmd_line(x))
         else:
             print()
-        blacklist.append(recursiveChild(x, blacklist, repeat))
+        blacklist.append(recursive_child(x, blacklist, repeat))
         print()
