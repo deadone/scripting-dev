@@ -38,7 +38,7 @@ def color_repeat(repeat):
 
 # class for processes
 class linux_proc_list:
-    def linux_get_proc():
+    def get_proc():
         proc_read = os.popen('ls /proc/').read()
         proc_list = proc_read.split("\n")
         new_proc_list = []
@@ -50,7 +50,7 @@ class linux_proc_list:
 
     def verify_pid(pid):
         pid = str(pid)
-        processes = linux_proc_list.linux_get_proc()
+        processes = linux_proc_list.get_proc()
         for x in range(len(processes)):
             if pid in str(processes[x]):
                 return True
@@ -75,10 +75,10 @@ class linux_proc_list:
             return name
 
     def proc_list():
-        return linux_proc_list.linux_get_proc()
+        return linux_proc_list.get_proc()
 
     def proc_list_plus():
-        processes = linux_proc_list.linux_get_proc()
+        processes = linux_proc_list.get_proc()
         counter = 0
         print(color.bold + color.red + str(len(processes)), "Current Running Proccesses:" + color.nc)
         for x in range(len(processes)):
