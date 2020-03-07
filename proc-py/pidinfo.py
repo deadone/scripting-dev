@@ -19,8 +19,8 @@ else:
     pid = str(os.getpid())
 
 while(1):
-    linux_proc_list.proc_list_plus()
-    linux_proc_list.process_viewer(pid)
+    linux_proc.proc_list_plus()
+    linux_proc.process_viewer(pid)
     redo = str(input("\nDo you want to select another process? [y/n]: "))
     if redo == "y":
         pid = str(input("Please input the PID: "))
