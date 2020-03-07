@@ -28,7 +28,6 @@ blacklist = []
 print("Dead1's PID Process Tree:")
 for x in process:
     repeat = 0
-    col = colrep(repeat)
     if str(x) not in blacklist:
         blacklist.append(x)
         print("\__________" + str(x).ljust(8, " ") + linux_proc_list.get_name(x).ljust(20, " "), end="")
