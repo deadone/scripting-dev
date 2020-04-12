@@ -13,6 +13,10 @@
 - <b>deadlib</b> - contains classes and methods for proc-py functionality<br>
 <br>
 
+<b>bash-dev</b> - Bash Script Folder<br>
+- <B>sshauth.sh</B> - script to generate attempted usernames and banned IPs from server logs<br>
+<br>
+
 <b>c-dev</b> - C Development Folder<br>
 - <B>idump.c</B> - hexdump written in c<br>
 <br>
