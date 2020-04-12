@@ -3,6 +3,6 @@
 - <b>pidprocess.py</b> - draws a PID tree with children PIDs branching<br>
 - <b>color-pidprocess.py</b> - color version of pidprocess<br>
 - <b>pocinfo.py</b> - shows use of classes and methods<br>
-- <b>deadlib</b> - contains classes and methods for proc-py functionality<br>
+- <b>deadlib.py</b> - contains classes and methods for proc-py functionality<br>
 <br>
 All scripts will require deadlib to be in same folder.
