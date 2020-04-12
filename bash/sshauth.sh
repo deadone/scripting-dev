@@ -26,4 +26,4 @@ echo -e "${LLDATE}\tUsernames: ${USERT}\tBanned: ${BANNT}" >> $PWD/logs/$GODLOG
 echo -e "\n *SSH Server Authentication Stats*"
 echo -e "  [ ${BANNT} ] Banned IPs\n  [ ${USERT} ] Attempted Usernames"
 echo -e " Logs Located:"
-echo -e "  $PWD/logs/$GODLOG\n  $PWD/logs/${BANNAME}\n  $PWD/logs/${TRYNAME}\n"
+echo -e "  ${PWD}/logs/${GODLOG}\n  ${PWD}/logs/${BANNAME}\n  ${PWD}/logs/${TRYNAME}\n"
