@@ -13,13 +13,13 @@ BANNAME="banned.log" # output filename for banned IPs
 GODLOG="godlog.log"  # chronological output file
 
 mkdir -p $PWD/$DIRNAME
-cat /var/log/auth.log* | grep ssh | grep invalid | cut -b 75-150 | cut -d " " -f 3 > $PWD/$DIRNAME/temp1
-sort $PWD/$DIRNAME/temp1 | uniq > $PWD/$DIRNAME/$TRYNAME
+zgrep 'Invalid' /var/log/auth.log* | cut -b 75-150 | cut -d " " -f 2 > $PWD/$DIRNAME/temp1
 zgrep 'Ban' /var/log/fail2ban.log* | cut -b 75-150 | cut -d " " -f 6 > $PWD/$DIRNAME/temp2
+sort $PWD/$DIRNAME/temp1 | uniq > $PWD/$DIRNAME/$TRYNAME
 sort $PWD/$DIRNAME/temp2 | uniq > $PWD/$DIRNAME/$BANNAME
-rm $PWD/$DIRNAME/temp*
 sed -i '/^$/d' $PWD/$DIRNAME/$TRYNAME
 sed -i '/^$/d' $PWD/$DIRNAME/$BANNAME
+rm $PWD/$DIRNAME/temp*
 LLDATE=`date`
 USERT=`wc -w $PWD/$DIRNAME/$TRYNAME | cut -d " " -f 1`
 BANNT=`wc -w $PWD/$DIRNAME/$BANNAME | cut -d " " -f 1`
