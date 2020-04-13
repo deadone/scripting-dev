@@ -28,3 +28,6 @@ echo -e "\n *SSH Server Authentication Stats*"
 echo -e "  [ ${BANNT} ] Banned IPs\n  [ ${USERT} ] Attempted Usernames"
 echo -e " Logs Located:"
 echo -e "  ${PWD}/$DIRNAME/${GODLOG}\n  ${PWD}/$DIRNAME/${BANNAME}\n  ${PWD}/$DIRNAME/${TRYNAME}\n"
+echo -e " Godlog:"
+cat $PWD/$DIRNAME/$GODLOG
+echo -e ""
