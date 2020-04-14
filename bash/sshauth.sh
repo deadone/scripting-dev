@@ -27,7 +27,7 @@ USERT=`wc -w $PWD/$DIRNAME/$TRYNAME | cut -d " " -f 1`
 BANNT=`wc -w $PWD/$DIRNAME/$BANNAME | cut -d " " -f 1`
 LUSRS=0
 LBANS=0
-echo -e "\n *SSH Server Authentication Stats*"
+echo -e "\n **[ SSH Server Authentication Stats ]**"
 echo -e "  [ ${BANNT} ] Banned IPs\n  [ ${USERT} ] Attempted Usernames"
 GODFILE="${PWD}/${DIRNAME}/${GODLOG}"
 if [ -f "$GODFILE" ]; then
