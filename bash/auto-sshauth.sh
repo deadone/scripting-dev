@@ -12,7 +12,7 @@ TRYNAME="tried.log"  # output filename for username attempts
 BANNAME="banned.log" # output filename for banned IPs
 GODLOG="godlog.log"  # chronological output file
 SLPTME=1800          # seconds (3600 = 1h)
-DISLOG=5             # number of logs to display
+DISLOG=10            # number of logs to display
 
 while [ 1 ]
 do
@@ -30,7 +30,7 @@ do
 	BANNT=`wc -w $PWD/$DIRNAME/$BANNAME | cut -d " " -f 1`
 	LUSRS=0
 	LBANS=0
-	echo -e "\n **[ SSH Server Authentication Stats ]**"
+	echo -e "\n >> SSH Server Authentication Stats <<"
 	echo -e " Setup to Log Every: [ $((${SLPTME}/60)) Minutes ]"
 	echo -e "  [ ${BANNT} ] Banned IPs\n  [ ${USERT} ] Attempted Usernames"
 	GODFILE="${PWD}/${DIRNAME}/${GODLOG}"
