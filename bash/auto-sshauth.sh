@@ -30,7 +30,7 @@ do
 	BANNT=`wc -w $PWD/$DIRNAME/$BANNAME | cut -d " " -f 1`
 	LUSRS=0
 	LBANS=0
-	echo -e "\n **SSH Server Authentication Stats**"
+	echo -e "\n **[ SSH Server Authentication Stats ]**"
 	echo -e " Setup to Log Every: [ $((${SLPTME}/60)) Minutes ]"
 	echo -e "  [ ${BANNT} ] Banned IPs\n  [ ${USERT} ] Attempted Usernames"
 	GODFILE="${PWD}/${DIRNAME}/${GODLOG}"
