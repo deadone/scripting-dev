@@ -32,5 +32,4 @@ if [ -f "/var/log/fail2ban.log" ]; then
 else
 	echo -e "\tNo fail2ban"
 fi
-
 echo -e ""
