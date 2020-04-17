@@ -30,6 +30,7 @@ function time_sync {
         local RIGHT_NOW=`date`
         local NEXT_TIME=`date -d @${TS_FIN}`
         echo -e "\n >> Time Sync <<"
+		echo -e " Managing Script Start Times"
         echo -e " Current Time:\t${RIGHT_NOW}"
         echo -e " Start Time:\t${NEXT_TIME}"
         echo -e " Countdown:\t${TS_SLP} Seconds"
