@@ -1,29 +1,31 @@
 #!/bin/bash
 # Author: dead1
 # SSH Authorization Attempts
-# Parses Fail2ban.log and Auth.log
-# Requires Fail2ban to be installed
+# Parses Fail2ban.log (if enabled) and Auth.log
 # Username Attempts / IP Addresses
 
 # Variables
-DIRNAME="auth-ssh"  # directory used/created for output
 TRYNAME="user.log"  # output filename for username attempts
-BANNAME="ip.log"    # output filename for banned IPs
+BANNAME="ip.log"    # output filename for banned IPs (if fail2ban is enabled)
 
-mkdir -p $PWD/$DIRNAME
-zgrep 'Invalid' /var/log/auth.log* | cut -b 75-150 | cut -d " " -f 2 > $PWD/$DIRNAME/temp1
-zgrep 'Ban' /var/log/fail2ban.log* | cut -b 75-150 | cut -d " " -f 6 > $PWD/$DIRNAME/temp2
-sort $PWD/$DIRNAME/temp1 | uniq > $PWD/$DIRNAME/$TRYNAME
-sort $PWD/$DIRNAME/temp2 | uniq > $PWD/$DIRNAME/$BANNAME
-sed -i '/^$/d' $PWD/$DIRNAME/$TRYNAME
-sed -i '/^$/d' $PWD/$DIRNAME/$BANNAME
-rm $PWD/$DIRNAME/temp*
-LLDATE=`date`
-USERT=`wc -w $PWD/$DIRNAME/$TRYNAME | cut -d " " -f 1`
-BANNT=`wc -w $PWD/$DIRNAME/$BANNAME | cut -d " " -f 1`
-LUSRS=0
-LBANS=0
-echo -e "\n >> SSH Server Authentication Stats <<"
-echo -e "  [ ${BANNT} ] Banned IPs\n  [ ${USERT} ] Attempted Usernames"
-echo -e " Logs Created:"
-echo -e "  ${PWD}/${DIRNAME}/${BANNAME}\n  ${PWD}/${DIRNAME}/${TRYNAME}\n"
+echo -e " >> SSH Server Authentication Stats <<"
+if [ -f "/var/log/auth.log" ]; then
+    zgrep 'Invalid' /var/log/auth.log* | cut -b 75-150 | cut -d " " -f 2 > $PWD/temp1
+	sort $PWD/temp1 | uniq > $PWD/$TRYNAME
+	sed -i '/^$/d' $PWD/$TRYNAME
+	rm $PWD/temp1
+	USERT=`wc -w $PWD/$TRYNAME | cut -d " " -f 1`
+	echo -e "  [ ${USERT} ] Attempted Usernames"
+	echo -e " \tLog Created: ${PWD}/${TRYNAME}"
+fi
+
+if [ -f "/var/log/fail2ban.log" ]; then
+    zgrep 'Ban' /var/log/fail2ban.log* | cut -b 75-150 | cut -d " " -f 6 > $PWD/temp2
+	sort $PWD/temp2 | uniq > $PWD/$BANNAME
+	sed -i '/^$/d' $PWD/$BANNAME
+	rm $PWD/temp2
+	BANNT=`wc -w $PWD/$BANNAME | cut -d " " -f 1`
+	echo -e "  [ ${BANNT} ] Banned IPs"
+	echo -e "\tLog Created: ${PWD}/${BANNAME}"
+fi
+echo -e ""
