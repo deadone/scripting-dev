@@ -4,7 +4,9 @@
 # Program to execute command/script/program at proper intervals
 # On the day, hour, half-hour or minute.
 
+# only variable you might need to modify
 TZ=6 # hours behind UTC
+
 DELTA_REP=$1
 TZ_OFFSET=0
 case $2 in
