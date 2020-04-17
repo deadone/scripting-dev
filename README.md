@@ -17,7 +17,7 @@
 - <B>auto-sshauth.sh</B> - script to generate attempted usernames and banned IPs from server logs every X seconds<br>
 - <B>sshauth.sh</B> - script to generate attempted usernames and banned IPs from server logs<br>
 - <B>timesync.sh</B> - stand-alone program to execute commands or run scripts at a given time<br>
-- <B>time_sync.sh</B> - function to sync scripts start times<br>
+- <B>time_sync.sh</B> - function to sync script run times<br>
 <br>
 
 <b>c-dev</b> - C Development Folder<br>
