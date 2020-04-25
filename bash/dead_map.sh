@@ -9,7 +9,7 @@ DEAD_NOT="/24"
 DEAD_NMAP="-sC -sV -oA"
 
 # file management
-DEAD_PROJECT="dead-test"
+DEAD_PROJECT="dead-scan"
 DEAD_DIR="$PWD/$DEAD_PROJECT"
 DEAD_HOSTS="${DEAD_DIR}/host-list"
 
