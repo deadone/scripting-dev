@@ -3,9 +3,7 @@
 # script to enumerate hosts and
 # scan and create folders with output
 
-# network to scan
-DEAD_NET="10.0.0.0"
-DEAD_NOT="/24"
+# nmap settings
 DEAD_NMAP="-sC -sV -oA"
 
 # file management
@@ -15,17 +13,36 @@ DEAD_HOSTS="${DEAD_DIR}/host-list"
 
 # nmap ping scan & grep for IPs/hostnames
 clear
-echo ">>> Dead1's Nmap Automation <<<"
+echo -e ">>> Dead1's Nmap Automation <<<\n"
+echo -e "Networks you are on:"
+ifconfig | grep -i "inet " | cut -d " " -f 10
+echo -e "\nSelect Network:"
+read DEAD_NET
+echo -e "\nSubnet: (eg: 24)"
+read DEAD_NOT
+echo -e ""
 mkdir -p $DEAD_DIR
-nmap -sn ${DEAD_NET}${DEAD_NOT} | grep -i "report for" | cut -b 22-50 > $DEAD_HOSTS
+nmap -sn ${DEAD_NET}/${DEAD_NOT} | grep -i "report for" | cut -b 22-50 > $DEAD_HOSTS
 echo -e ">>> Hosts Found: <<<"
 cat ${DEAD_HOSTS}
 echo -e ""
-echo -e "Scan these hosts? (y/n)"
-read CONTINUE
+echo -e "How to Proceed:\n1 - Scan One Host\n2 - Scan All Hosts\n3 - Exit"
+echo -e "\nEnter Choice:"
+read PROCEED
 echo -e ""
 
-if [ "$CONTINUE" == "y" ]
+if [ "$PROCEED" == "1" ]
+then
+	rm -rf $DEAD_DIR
+	echo -e "Enter Host:"	
+	read DEAD_HOST
+	echo -e ""
+	mkdir -p $PWD/dead_output
+	nmap $DEAD_NMAP $PWD/dead_output/$DEAD_HOST $DEAD_HOST
+	echo -e "\nOutput Saved: $PWD/$DEAD_HOST\n"	
+fi
+
+if [ "$PROCEED" == "2" ]
 then
 	# nmap script scan on host(s)
 	while IFS= read -r DEAD_HOST
@@ -38,4 +55,4 @@ then
 	cat ${DEAD_HOSTS}
 	echo -e ""
 fi
-echo -e "\n.. Exitting\n"
+echo -e ".. Exitting\n"
