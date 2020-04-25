@@ -57,14 +57,14 @@ then
 	while IFS= read -r DEAD_HOST
 	do
 		DEAD_HOST=`echo $DEAD_HOST | cut -d " " -f 1`
-		echo -e "${COL1} Scanning host ${DEAD_HOST} ... This may take awhile ..."
+		echo -e "${COL1} Scanning host ${DEAD_HOST} ..."
 		mkdir -p $DEAD_DIR/$DEAD_HOST
 		nmap $DEAD_NMAP $DEAD_DIR/$DEAD_HOST/$DEAD_HOST $DEAD_HOST
 		echo -e ""
 	done < "$DEAD_HOSTS"
-	echo -e "\n\n${COL1} Hosts Scanned"
+	echo -e "${COL1} Hosts Scanned"
 	cat ${DEAD_HOSTS}
-	echo -e "\n${COL1} Output Files - Located at\n>${COL1} ${DEAD_DIR}"
+	echo -e "\n${COL1} Output Files - Located at\n${COL1} ${DEAD_DIR}"
 	ls -la $DEAD_DIR
 	exit
 fi
