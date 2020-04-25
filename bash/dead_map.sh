@@ -7,7 +7,7 @@
 DEAD_NMAP="-sC -sV -oA"
 
 # file management
-DEAD_PROJECT="htb" 		# engagement name
+DEAD_PROJECT="oscp" 		# engagement name
 DEAD_DIR="$PWD/$DEAD_PROJECT"
 DEAD_HOSTS="${DEAD_DIR}/host-list"
 
@@ -48,6 +48,7 @@ fi
 if [ "$PROCEED" == "2" ]
 then
 	# nmap script scan on host(s)
+	echo -e ">>> Scanning ALL hosts. This may take awhile.\n"
 	while IFS= read -r DEAD_HOST
 	do
 		DEAD_HOST=`echo $DEAD_HOST | cut -d " " -f 1`
@@ -61,5 +62,3 @@ then
 	exit
 fi
 rm -rf $DEAD_DIR
-echo -e ".. Exiting\n"
-exit
