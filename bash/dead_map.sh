@@ -39,7 +39,7 @@ then
 	echo -e ""
 	mkdir -p $PWD/dead_output
 	nmap $DEAD_NMAP $PWD/dead_output/$DEAD_HOST $DEAD_HOST
-	echo -e "\nOutput Saved:\n$PWD/$DEAD_HOST"	
+	echo -e "\nOutput Saved:\n$PWD/dead_output"	
 fi
 
 if [ "$PROCEED" == "2" ]
