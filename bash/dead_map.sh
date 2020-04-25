@@ -16,14 +16,14 @@ clear
 echo -e ">>> Dead1's Nmap Automation <<<\n"
 echo -e "Networks you are on:"
 ifconfig | grep -i "inet " | cut -d " " -f 10
-echo -e "\nSelect Network:"
+echo -e "\nSelect Host/Network: (eg: 10.0.0.1)"
 read DEAD_NET
 echo -e "\nSubnet: (eg: 24)"
 read DEAD_NOT
 echo -e ""
 mkdir -p $DEAD_DIR
 nmap -sn ${DEAD_NET}/${DEAD_NOT} | grep -i "report for" | cut -b 22-50 > $DEAD_HOSTS
-echo -e ">>> Hosts Found: <<<"
+echo -e "Hosts Found:"
 cat ${DEAD_HOSTS}
 echo -e ""
 echo -e "How to Proceed:\n1 - Scan One Host\n2 - Scan All Hosts\n3 - Exit"
@@ -51,7 +51,7 @@ then
 		mkdir -p $DEAD_DIR/$DEAD_HOST
 		nmap $DEAD_NMAP $DEAD_DIR/$DEAD_HOST/$DEAD_HOST $DEAD_HOST
 	done < "$DEAD_HOSTS"
-	echo -e "\n\n>>> Hosts Scanned <<<"
+	echo -e "\n\nHosts Scanned:"
 	cat ${DEAD_HOSTS}
 	echo -e ""
 fi
