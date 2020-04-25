@@ -20,6 +20,7 @@ echo -e "\n>>> Select Host/Network (eg: 10.0.0.1)"
 read DEAD_NET
 echo -e "\n>>> Subnet Cidr (eg: 24)"
 read DEAD_NOT
+echo -e "\n>>> Ping Scanning..."
 echo -e ""
 mkdir -p $DEAD_DIR
 nmap -sn ${DEAD_NET}/${DEAD_NOT} | grep -i "report for" | cut -b 22-50 > $DEAD_HOSTS
@@ -40,7 +41,7 @@ then
 	echo -e ""
 	mkdir -p $DEAD_PROJECT
 	nmap $DEAD_NMAP $DEAD_PROJECT/$DEAD_HOST $DEAD_HOST
-	echo -e "\n>>> Output Saved\n$PWD/dead_output/$DEAD_HOST.nmap\n"
+	echo -e "\n>>> Output Saved\n$DEAD_DIR/$DEAD_HOST.nmap\n"
 	exit	
 fi
 
@@ -59,5 +60,6 @@ then
 	ls -la $DEAD_DIR
 	exit
 fi
+rm -rf $DEAD_DIR
 echo -e ".. Exiting\n"
 exit
