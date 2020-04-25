@@ -39,7 +39,7 @@ then
 	echo -e ""
 	mkdir -p $PWD/dead_output
 	nmap $DEAD_NMAP $PWD/dead_output/$DEAD_HOST $DEAD_HOST
-	echo -e "\nOutput Saved: $PWD/$DEAD_HOST\n"	
+	echo -e "\nOutput Saved:\n$PWD/$DEAD_HOST"	
 fi
 
 if [ "$PROCEED" == "2" ]
@@ -53,6 +53,6 @@ then
 	done < "$DEAD_HOSTS"
 	echo -e "\n\nHosts Scanned:"
 	cat ${DEAD_HOSTS}
-	echo -e ""
 fi
-echo -e ".. Exitting\n"
+echo -e "\n.. Exiting\n"
+exit
