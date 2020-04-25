@@ -15,7 +15,7 @@ DEAD_HOSTS="${DEAD_DIR}/host-list"
 
 # nmap ping scan & grep for IPs/hostnames
 clear
-echo ">>> Dead1's Nmap Automater <<<"
+echo ">>> Dead1's Nmap Automation <<<"
 mkdir -p $DEAD_DIR
 nmap -sn ${DEAD_NET}${DEAD_NOT} | grep -i "report for" | cut -b 22-50 > $DEAD_HOSTS
 echo -e ">>> Hosts Found: <<<"
