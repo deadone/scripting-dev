@@ -7,7 +7,7 @@
 DEAD_NMAP="-sC -sV -oA"
 
 # file management
-DEAD_PROJECT="htb" 		# engagement name
+DEAD_PROJECT="oscp" 		# engagement name
 DEAD_DIR="$PWD/$DEAD_PROJECT"
 DEAD_HOSTS="${DEAD_DIR}/host-list"
 
@@ -18,14 +18,14 @@ COL1="${CL8}>>>${NC}"
 
 # nmap ping scan & grep for IPs/hostnames
 clear
-echo -e "${COL1} Dead1's Nmap Automation <<<\n"
+echo -e "${COL1} Dead1's Nmap Automation ${CL8}<<<${NC}\n"
 echo -e "${COL1} Networks/Interfaces You Are On"
 ifconfig | grep -i "inet " | cut -d " " -f 10
 echo -e "\n${COL1} Select Host/Network (eg: 10.0.0.1)"
 read DEAD_NET
 echo -e "\n${COL1} Subnet Cidr (eg: 24)"
 read DEAD_NOT
-echo -e "\n${COL1} Ping Scanning ..."
+echo -e "\n${COL1} Running Ping Scan ... (Please Wait)"
 echo -e ""
 mkdir -p $DEAD_DIR
 nmap -sn ${DEAD_NET}/${DEAD_NOT} | grep -i "report for" | cut -b 22-50 > $DEAD_HOSTS
@@ -53,12 +53,14 @@ fi
 if [ "$PROCEED" == "2" ]
 then
 	# nmap script scan on host(s)
-	echo -e "${COL1} Scanning ALL hosts ... This may take awhile ...\n"
+	echo -e "${COL1} Scanning ALL hosts ... (Please Wait)"
 	while IFS= read -r DEAD_HOST
 	do
 		DEAD_HOST=`echo $DEAD_HOST | cut -d " " -f 1`
+		echo -e "${COL1} Scanning host ${DEAD_HOST} ... This may take awhile ..."
 		mkdir -p $DEAD_DIR/$DEAD_HOST
 		nmap $DEAD_NMAP $DEAD_DIR/$DEAD_HOST/$DEAD_HOST $DEAD_HOST
+		echo -e ""
 	done < "$DEAD_HOSTS"
 	echo -e "\n\n${COL1} Hosts Scanned"
 	cat ${DEAD_HOSTS}
