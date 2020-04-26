@@ -68,11 +68,26 @@ then
 	echo -e "${COL2} Hosts Scanned"
 	cat ${DEAD_HOSTS}
 	echo -e "\n${COL2} Quick Summary"
-	cat ${DEAD_DIR}/*.gnmap | grep Ports
+	cat ${DEAD_DIR}/*.gnmap | grep Ports > ${DEAD_DIR}/summary.scan
+	cat ${DEAD_DIR}/summary.scan
+	rm ${DEAD_DIR}/*.gnmap
 	echo -e "\n${COL2} Output Files - Located at\n${COL2} ${DEAD_DIR}"
 	ls -la $DEAD_DIR
 	echo -e ""
 	exit
+fi
+
+echo -e "${COL1} Do You Want to Delete the Found Hosts? ${DEAD_HOSTS}?  (y/n)"
+read ERAS1
+if [ "$ERAS1" == "y" ]
+then
+	rm -rf $DEAD_DIR
+	echo -e "\n${COL1} Deleting.."
+	echo -e "${COL2} Exiting..\n"
+	exit
+fi
+echo -e "\n${COL2} Saved\n${COL2} Hostfile saved: ${DEAD_HOSTS}\n"
+exit
 fi
 
 echo -e "${COL1} Do You Want to Delete the Found Hosts? ${DEAD_HOSTS}?  (y/n)"
