@@ -13,14 +13,16 @@ DEAD_HOSTS="${DEAD_DIR}/host-list"
 
 # colours
 CL8='\033[1;31m' #light red
+CL2='\033[0;32m' #green
 NC='\033[0m' #No color
 COL1="${CL8}>>>${NC}"
+COL2="${CL2}>>>${NC}"
 
 # nmap ping scan & grep for IPs/hostnames
 clear
 echo -e "${COL1} Dead1's Nmap Automation ${CL8}<<<${NC}\n"
-echo -e "${COL1} Networks/Interfaces You Are On"
-ifconfig | grep -i "inet " | cut -d " " -f 10
+echo -e "${COL2} Networks/Interfaces You Are On"
+ifconfig | grep -i "inet " | cut -d " " -f 10 #,12,13
 echo -e "\n${COL1} Select Host/Network (eg: 10.0.0.1)"
 read DEAD_NET
 echo -e "\n${COL1} Subnet Cidr (eg: 24)"
@@ -29,8 +31,8 @@ echo -e "\n${COL1} Running Ping Scan ... (Please Wait)"
 echo -e ""
 mkdir -p $DEAD_DIR
 nmap -sn ${DEAD_NET}/${DEAD_NOT} | grep -i "report for" | cut -b 22-50 > $DEAD_HOSTS
-echo -e "${COL1} Found Hosts"
-cat ${DEAD_HOSTS}
+echo -e "${COL2} Found Hosts"
+cat $DEAD_HOSTS
 echo -e ""
 echo -e "${COL1} Proceed\n1 - Scan One Host\n2 - Scan All Hosts\n3 - Exit"
 echo -e "\n${COL1} Enter Choice (eg: 1)"
@@ -46,7 +48,7 @@ then
 	echo -e ""
 	mkdir -p $DEAD_DIR
 	nmap $DEAD_NMAP $DEAD_PROJECT/$DEAD_HOST $DEAD_HOST
-	echo -e "\n${COL1} Output Saved\n$DEAD_DIR/$DEAD_HOST.nmap\n"
+	echo -e "\n${COL2} Output Saved\n$DEAD_DIR/$DEAD_HOST.nmap\n"
 	exit	
 fi
 
@@ -63,16 +65,26 @@ then
 		echo -e ""
 	done < "$DEAD_HOSTS"
 
-	echo -e "${COL1} Hosts Scanned"
+	echo -e "${COL2} Hosts Scanned"
 	cat ${DEAD_HOSTS}
-	echo -e "\n${COL1} Output Files - Located at\n${COL1} ${DEAD_DIR}"
+	echo -e "\n${COL2} Quick Summary"
+	cat ${DEAD_DIR}/*.gnmap | grep Ports
+	echo -e "\n${COL2} Output Files - Located at\n${COL1} ${DEAD_DIR}"
 	ls -la $DEAD_DIR
 	exit
 fi
 
-echo -e "${COL1} Do You Want to Delete the Found Hosts?  ${DEAD_HOSTS}?  (y/n)"
+echo -e "${COL1} Do You Want to Delete the Found Hosts? ${DEAD_HOSTS}?  (y/n)"
 read ERAS1
 if [ "$ERAS1" == "y" ]
+then
+	rm -rf $DEAD_DIR
+	echo -e "\n${COL1} Deleting.."
+	echo -e "${COL2} Exiting..\n"
+	exit
+fi
+echo -e "\n${COL2} Saved\n${COL2} Hostfile saved: ${DEAD_HOSTS}\n"
+exit
 then
 	rm -rf $DEAD_DIR
 	echo -e "\n${COL1} Deleted.."
