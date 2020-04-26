@@ -44,7 +44,7 @@ then
 	echo -e "${COL1} Enter Host"	
 	read DEAD_HOST
 	echo -e ""
-	mkdir -p $DEAD_PROJECT
+	mkdir -p $DEAD_DIR
 	nmap $DEAD_NMAP $DEAD_PROJECT/$DEAD_HOST $DEAD_HOST
 	echo -e "\n${COL1} Output Saved\n$DEAD_DIR/$DEAD_HOST.nmap\n"
 	exit	
@@ -58,10 +58,11 @@ then
 	do
 		DEAD_HOST=`echo $DEAD_HOST | cut -d " " -f 1`
 		echo -e "${COL1} Scanning host ${DEAD_HOST} ..."
-		mkdir -p $DEAD_DIR/$DEAD_HOST
-		nmap $DEAD_NMAP $DEAD_DIR/$DEAD_HOST/$DEAD_HOST $DEAD_HOST
+		nmap $DEAD_NMAP $DEAD_DIR/$DEAD_HOST $DEAD_HOST
+		rm $DEAD_DIR/*.xml
 		echo -e ""
 	done < "$DEAD_HOSTS"
+
 	echo -e "${COL1} Hosts Scanned"
 	cat ${DEAD_HOSTS}
 	echo -e "\n${COL1} Output Files - Located at\n${COL1} ${DEAD_DIR}"
