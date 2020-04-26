@@ -69,8 +69,9 @@ then
 	cat ${DEAD_HOSTS}
 	echo -e "\n${COL2} Quick Summary"
 	cat ${DEAD_DIR}/*.gnmap | grep Ports
-	echo -e "\n${COL2} Output Files - Located at\n${COL1} ${DEAD_DIR}"
+	echo -e "\n${COL2} Output Files - Located at\n${COL2} ${DEAD_DIR}"
 	ls -la $DEAD_DIR
+	echo -e ""
 	exit
 fi
 
@@ -84,12 +85,4 @@ then
 	exit
 fi
 echo -e "\n${COL2} Saved\n${COL2} Hostfile saved: ${DEAD_HOSTS}\n"
-exit
-then
-	rm -rf $DEAD_DIR
-	echo -e "\n${COL1} Deleted.."
-	echo -e "${COL1} Exiting..\n"
-	exit
-fi
-echo -e "\n${COL1} Saved\n${COL1} Hostfile saved:  ${DEAD_HOSTS}\n"
 exit
