@@ -68,11 +68,10 @@ then
 	cat ${DEAD_HOSTS}
 	echo -e "\n${COL2} Quick Summary"
 	cat ${DEAD_DIR}/*.nmap | grep Ports > ${DEAD_DIR}/summary.scan
-	rm ${DEAD_DIR}*.nmap
-	rm ${DEAD_HOSTS}
 	cat ${DEAD_DIR}/summary.scan
-	echo -e "\n${COL2} Output Files - Located at\n${COL2} ${DEAD_DIR}"
-	ls -la $DEAD_DIR
+	mv ${DEAD_DIR}/summary.scan ${PWD}
+	rm -rf ${DEAD_DIR}
+	echo -e "\n${COL2} Output Located at\n${COL2} ${PWD}/summary.scan"
 	echo -e ""
 	exit
 fi
