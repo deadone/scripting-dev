@@ -1,4 +1,8 @@
-#!/bin/bash
+
+	exit
+fi
+
+echo -e "${COL1} Do You Want to Delete the Found Hosts? ${DEAD_HOSTS}?  (y/n)"#!/bin/bash
 # author: dead1
 # script to enumerate hosts and
 # scan and create folders with output
@@ -78,6 +82,15 @@ fi
 
 echo -e "${COL1} Do You Want to Delete the Found Hosts? ${DEAD_HOSTS}?  (y/n)"
 read ERAS1
+if [ "$ERAS1" == "y" ]
+then
+	rm -rf $DEAD_DIR
+	echo -e "\n${COL1} Deleting.."
+	echo -e "${COL2} Exiting..\n"
+	exit
+fi
+echo -e "\n${COL2} Saved\n${COL2} Hostfile saved: ${DEAD_HOSTS}\n"
+exitread ERAS1
 if [ "$ERAS1" == "y" ]
 then
 	rm -rf $DEAD_DIR
