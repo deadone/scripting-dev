@@ -1,8 +1,4 @@
-
-	exit
-fi
-
-echo -e "${COL1} Do You Want to Delete the Found Hosts? ${DEAD_HOSTS}?  (y/n)"#!/bin/bash
+#!/bin/bash
 # author: dead1
 # script to enumerate hosts and
 # scan and create folders with output
