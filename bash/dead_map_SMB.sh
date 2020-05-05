@@ -32,19 +32,23 @@ scan_vuln() {
 	nmap -p${NMAP_PORT} -Pn ${NET_TO_SCAN} > enum.scan
 	echo -e "${NICED} Starting ${DRED}${FIND_VULN}${NC} Scan on Enumerated Targets"
 	cat enum.scan | grep -B 4 open | grep for | cut -b 22-40 > ${NMAP_PORT}.scan
+	rm enum.scan
 	nmap -Pn -p${NMAP_PORT} --open --max-hostgroup 3 --script ${NMAP_SCRIPT} -iL ${NMAP_PORT}.scan > vuln.out
+	rm ${NMAP_PORT}.scan
 	cat vuln.out | grep -i -B 8 -A 4 vulnerable >  ${FIND_VULN}-vuln.out
+	rm vuln.out
 	echo -e "${NICED} Vulnerable Targets:${DRED}"
 	cat ${FIND_VULN}-vuln.out | grep for | cut -b 22-40
-	rm enum.scan
-	rm ${NMAP_PORT}.scan
-	rm vuln.out
+	## comment following (1) lines out to create log
+	rm ${FIND_VULN}-vuln.out
 }
 
 LOG_DATE=`date +"%D - %T"`
-echo -e "${DGRN}>>> Dead1's VULN OSCP Network Nmap Scan <<<"
+echo -e "\n${DGRN}>>> Dead1's VULN OSCP Network Nmap Scan <<<"
 echo -e "Scanning for: ${DRED}${FIND_VULN}${NC}"
 echo -e "${DBLU}${LOG_DATE}${NC}"
 scan_vuln
-echo -e "${NC}Log Created: ${DGRN}${PWD}/${FIND_VULN}-vuln.out${NC}\n"
+## uncomment line below for log
+#echo -e "${NC}Log Created: ${DGRN}${PWD}/${FIND_VULN}-vuln.out${NC}\n"
+echo -e "${NC}"
 exit
