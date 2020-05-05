@@ -14,10 +14,10 @@
 # smb-vuln-ms10-061.nse
 
 # input network to scan here
-NET_TO_SCAN="10.11.1.0/24"			# network array to scan
-FIND_VULN="ms17-010" 				# name of vuln
+NET_TO_SCAN="10.11.1.0/24"		# network array to scan
+FIND_VULN="ms17-010" 			# name of vuln
 NMAP_SCRIPT="smb-vuln-ms17-010"		# nmap script to run
-NMAP_PORT=445						# port scan runs on
+NMAP_PORT=445				# port scan runs on
 
 # colours
 DRED='\033[1;31m' #light red
