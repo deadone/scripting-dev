@@ -1,6 +1,9 @@
 #!/bin/bash
 # author: dead1
 # quick script to scan network machines for different SMB vulns
+# run examples:
+# ./deadmap-vuln.sh (to run standalone, you need to properly edit NET_TO_SCAN)
+# ./deadmap-vuln.sh 10.11.1.0/24
 
 ### SMB Vuln Scripts
 # smb-vuln-conficker.nse
@@ -27,6 +30,13 @@ DGRN='\033[0;32m' #green
 NC='\033[0m' #color off
 NICED="${DGRN}[*]${NC}"
 
+if [ "$1" == "" ]
+then
+	:
+else
+	NET_TO_SCAN=${1}
+fi
+
 LOG_DATE=`date +"%D - %T"`
 echo -e "${DGRN}>>> Dead1s OSCP Network Vuln Scan <<<"
 echo -e "${DBLU}${LOG_DATE}${NC}"
@@ -35,7 +45,7 @@ echo -e "${NICED} Searching for:\t${DRED}${FIND_VULN}${NC}"
 echo -e "${NICED} Starting Network Enumeration Scan - Please be patient..."
 nmap -p${NMAP_PORT} -Pn ${NET_TO_SCAN} > /tmp/enum.scan
 cat /tmp/enum.scan | grep -B 4 open | grep -i "for" | cut -b 22-40 > /tmp/${NMAP_PORT}.scan
-HOST_WC=`cat /tmp/${NMAP_PORT}.scan | wc | cut -d " " -f 6`
+HOST_WC=`cat /tmp/${NMAP_PORT}.scan | wc -l` 
 rm /tmp/enum.scan
 if [ "$HOST_WC" == "" ]
 then
