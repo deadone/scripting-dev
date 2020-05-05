@@ -48,11 +48,10 @@ scan_vuln() {
 }
 
 LOG_DATE=`date +"%D - %T"`
-echo -e "${DGRN}>>> Dead1's VULN OSCP Network Nmap Scan <<<"
+echo -e "${DGRN}>>> Dead1's OSCP Network Vuln Scan <<<"
 echo -e "${DBLU}${LOG_DATE}${NC}"
 scan_vuln
 ## uncomment line below for log
 #echo -e "${NC}Log Created: ${DGRN}${PWD}/${FIND_VULN}-vuln.out${NC}\n"
 echo -e "${NC}"
 exit
-
