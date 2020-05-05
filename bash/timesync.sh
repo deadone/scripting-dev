@@ -30,8 +30,6 @@ DGRN='\033[0;32m' #green
 NC='\033[0m' #color off
 NICED="${DGRN}[*]${NC}"
 
-#test
-TEST_VAR=${1}
 if [ "$1" == "" ]
 then
 	:
