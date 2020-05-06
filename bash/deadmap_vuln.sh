@@ -43,7 +43,7 @@ echo -e "${DBLU}${LOG_DATE}${NC}"
 echo -e "${NICED} Searching on:\t${DYEL}${NET_TO_SCAN}${NC}"
 echo -e "${NICED} Searching for:\t${DRED}${FIND_VULN}${NC}"
 echo -e "${NICED} Starting Network Enumeration Scan - Please be patient..."
-nmap -p${NMAP_PORT} -Pn ${NET_TO_SCAN} > /tmp/enum.scan
+nmap -p ${NMAP_PORT} -sT -Pn ${NET_TO_SCAN} > /tmp/enum.scan
 cat /tmp/enum.scan | grep -B 4 open | grep -i "for" | cut -b 22-40 > /tmp/${NMAP_PORT}.scan
 HOST_WC=`cat /tmp/${NMAP_PORT}.scan | wc -l` 
 rm /tmp/enum.scan
@@ -56,7 +56,7 @@ fi
 echo -e "${NICED} ${DYEL}${HOST_WC}${NC} Hosts Running Port ${DYEL}${NMAP_PORT}${NC}"
 # cat /tmp/${NMAP_PORT}.scan # uncomment to view hosts with open ports
 echo -e "${NICED} Starting ${DRED}${NMAP_SCRIPT}${NC} Scan Against ${DYEL}${HOST_WC}${NC} Hosts - Please be patient..."	
-nmap -Pn -p${NMAP_PORT} --open --max-hostgroup 3 --script ${NMAP_SCRIPT} -iL /tmp/${NMAP_PORT}.scan > /tmp/vuln.out
+nmap -p ${NMAP_PORT} -sT -Pn --open --max-hostgroup 3 --script ${NMAP_SCRIPT} -iL /tmp/${NMAP_PORT}.scan > /tmp/vuln.out
 rm /tmp/${NMAP_PORT}.scan
 cat /tmp/vuln.out | grep -i -B 8 -A 4 vulnerable > /tmp/${FIND_VULN}-vuln.out
 rm /tmp/vuln.out
