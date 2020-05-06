@@ -3,7 +3,7 @@
 # quick script to scan network machines for certain port
 # run examples:
 # ./deadmap-quikport.sh (to run standalone, you need to properly edit NET_TO_SCAN)
-# ./deadmap-quikport.sh 10.11.1.0/24 22
+# ./deadmap-quikport.sh 10.11.1.0/24
 
 # input network to scan here
 NET_TO_SCAN="10.11.1.0/24"		# network array to scan
@@ -35,7 +35,7 @@ echo -e "${DBLU}${LOG_DATE}${NC}"
 echo -e "${NICED} Searching on:\t${DYEL}${NET_TO_SCAN}${NC}"
 echo -e "${NICED} Searching for:\t${DYEL}${NMAP_PORT}${NC}"
 echo -e "${NICED} Starting Enumeration Scan - Please be patient..."
-nmap -p ${NMAP_PORT} -Pn ${NET_TO_SCAN} > /tmp/enum.scan
+nmap -p ${NMAP_PORT} -sT -Pn ${NET_TO_SCAN} > /tmp/enum.scan
 cat /tmp/enum.scan | grep -B 4 open | grep -i "for" | cut -b 22-40 > /tmp/${NMAP_PORT}.scan
 HOST_WC=`cat /tmp/${NMAP_PORT}.scan | wc -l`
 if [ "$HOST_WC" == "" ]
