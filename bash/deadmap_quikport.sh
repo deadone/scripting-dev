@@ -3,7 +3,7 @@
 # quick script to scan network machines for certain port
 # run examples:
 # ./deadmap-quikport.sh (to run standalone, you need to properly edit NET_TO_SCAN)
-# ./deadmap-quikport.sh 10.11.1.0/24
+# ./deadmap-quikport.sh 10.11.1.0/24 22
 
 # input network to scan here
 NET_TO_SCAN="10.11.1.0/24"		# network array to scan
