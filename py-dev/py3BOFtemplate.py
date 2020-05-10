@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-## dead1 buffer overflow Template
+## dead1 buffer overflow python3 template
+## make sure to double check your encoding
+
 import socket
 import struct
 
