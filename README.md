@@ -1,21 +1,21 @@
 # <b><u>dead1's scripting-dev</u></b><br>
 <b>py-dev</b> - Python Development Folder<br>
-- <B>pydump.py</B> - hexdump written in python3<br>
 - <B>bufferoverflow.py</B> - buffer overflow template made for quick exploitation<br>
+- <B>pydump.py</B> - hexdump written in python3<br>
 - <B>string-sort.py</B> - python3 script to fabricate random strings and allow substring indexing for buffer overflows<br>
 - <B>wtmp-dump.py</B> - python3 script to read wtmp file and show user logins on linux systems<br>
 <br>
 
 <b>bash</b> - Bash Script Folder<br>
-- <B>quick_linux_enum.sh</B> - quick script to upload and generate priv esc on linux<br>
+- <B>auto_sshauth.sh</B> - script to generate attempted usernames and banned IPs from server logs every X seconds<br>
 - <B>deadmap.sh</B> - automate nmap host enumeration, then scan and create output files<br>
 - <B>deadmap_quikport.sh</B> - quickly scan for machines running specific port.<br>
 - <B>deadmap_summary.sh</B> - quickly create summary for host enumeration<br>
 - <B>deadmap_vuln.sh</B> - quick script generated for my OSCP to quickly scan for vulns in a repeatable manner<br>
-- <B>auto_sshauth.sh</B> - script to generate attempted usernames and banned IPs from server logs every X seconds<br>
+- <B>func_timesync.sh</B> - function to sync script and execution run times<br>
+- <B>quick_linux_enum.sh</B> - quick script to upload and generate priv esc on linux<br>
 - <B>sshauth.sh</B> - script to generate attempted usernames and banned IPs from server logs<br>
 - <B>timesync.sh</B> - stand-alone program to execute commands or run scripts at a given time<br>
-- <B>func_timesync.sh</B> - function to sync script and execution run times<br>
 <br>
 
 <B>proc-py</B> - Linux Process Management<br>
