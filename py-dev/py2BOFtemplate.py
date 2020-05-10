@@ -1,9 +1,7 @@
 #!/usr/bin/python2
 # author: dead1
-# POC: guildFTPd buffer overflow
-
+# python2 buffer overflow template
 import socket
-import struct
 
 ## host information
 host="10.0.0.1"
