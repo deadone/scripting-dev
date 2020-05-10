@@ -6,14 +6,6 @@
 - <B>wtmp-dump.py</B> - python3 script to read wtmp file and show user logins on linux systems<br>
 <br>
 
-<B>proc-py</B> - Linux Process Management<br>
-- <b>pidinfo.py</b> - reads proc info on PID<br>
-- <b>pidprocess.py</b> - draws a PID tree with children PIDs branching<br>
-- <b>color-pidprocess.py</b> - color version of pidprocess<br>
-- <b>pocinfo.py</b> - shows use of classes and methods<br>
-- <b>deadlib.py</b> - contains classes and methods for proc-py functionality<br>
-<br>
-
 <b>bash</b> - Bash Script Folder<br>
 - <B>quick_linux_enum.sh</B> - quick script to upload and generate priv esc on linux<br>
 - <B>deadmap.sh</B> - automate nmap host enumeration, then scan and create output files<br>
@@ -24,6 +16,14 @@
 - <B>sshauth.sh</B> - script to generate attempted usernames and banned IPs from server logs<br>
 - <B>timesync.sh</B> - stand-alone program to execute commands or run scripts at a given time<br>
 - <B>func_timesync.sh</B> - function to sync script and execution run times<br>
+<br>
+
+<B>proc-py</B> - Linux Process Management<br>
+- <b>pidinfo.py</b> - reads proc info on PID<br>
+- <b>pidprocess.py</b> - draws a PID tree with children PIDs branching<br>
+- <b>color-pidprocess.py</b> - color version of pidprocess<br>
+- <b>pocinfo.py</b> - shows use of classes and methods<br>
+- <b>deadlib.py</b> - contains classes and methods for proc-py functionality<br>
 <br>
 
 <b>c-dev</b> - C Development Folder<br>
