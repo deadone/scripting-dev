@@ -1,6 +1,5 @@
 <h1>[*] dead1's Scripting-Dev</h1>
-<h3>author: dead1 - at- dead1.net<br>
-  https://www.dead1.net<br>
+<h3>https://www.dead1.net<br>
   an assortment of scripts and other useful junk<br>
   <i>i like infosec...<br></i></h3>
   
