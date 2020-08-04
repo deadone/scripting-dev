@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # Tested on: Windows 10 x86
 # Author: dead1
-# vulnapp1.exe
+# vuln1.exe
 # bad chars = \x00
 # 0x148010CF JMP ESP
 import socket
