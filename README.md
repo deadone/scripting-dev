@@ -1,3 +1,4 @@
+<center><img=other/dead.jpg"></center>
 <h1>[*] dead1's Scripting-Dev</h1>
 <h3>https://www.dead1.net<br>
   an assortment of scripts and other useful junk<br>
