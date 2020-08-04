@@ -1,4 +1,4 @@
-<B>proc-py</B> - Linux Process Management<br>
+<B>proc-py</B> - linux proces monitoring written in python3<br>
 - <b>color-pidprocess.py</b> - color version of pidprocess<br>
 - <b>deadlib.py</b> - contains classes and methods for proc-py functionality<br>
 - <b>pidinfo.py</b> - reads proc info on PID<br>
