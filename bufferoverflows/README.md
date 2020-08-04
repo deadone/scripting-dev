@@ -1,4 +1,4 @@
-<b>bufferoverflows</b> - Buffer Overflow PoCs and Vulnerable Apps<br>
+<b>bufferoverflows</b> - buffer overflows PoC and vulnerable apps<br>
 - <B>vuln1-poc.py</B> - solution for vuln1.exe
 - <B>vuln1.exe</B> - runs on port 7001 - Windows 10 x86
 - <B>vuln2-poc.py</B> - solution for vuln2.exe
