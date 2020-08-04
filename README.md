@@ -1,4 +1,5 @@
 <h1>dead1's Scripting-Dev</h1><br>
+<h3>an assortment of scripts and other useful junk</h3>
 <b>bash</b> - Bash Script Folder<br>
 - <B>auto_sshauth.sh</B> - script to generate attempted usernames and banned IPs from server logs every X seconds<br>
 - <B>deadmap.sh</B> - automate nmap host enumeration, then scan and create output files<br>
