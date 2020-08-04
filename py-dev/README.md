@@ -1,4 +1,5 @@
 <b>py-dev</b> - Python Development Folder<br>
+- <B>deadscrape.py</B>> - python3 script to scrape emails from webpages
 - <B>py2BOFtemplate.py</B> - python2 buffer overflow template made for quick exploitation<br>
 - <B>py3BOFtemplate.py</B> - python3 buffer overflow template made for quick exploitation<br>
 - <B>pydump.py</B> - hexdump written in python3<br>
