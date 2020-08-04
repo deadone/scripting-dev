@@ -2,7 +2,7 @@
 <h3>https://www.dead1.net<br>
   an assortment of scripts and other useful junk<br>
   <i>i like infosec...<br></i></h3>
-<br>  
+
 <b>bash</b> - bash scripting<br>
 - <B>auto_sshauth.sh</B> - script to generate attempted usernames and banned IPs from server logs every X seconds<br>
 - <B>deadmap.sh</B> - automate nmap host enumeration, then scan and create output files<br>
