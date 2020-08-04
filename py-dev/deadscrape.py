@@ -14,6 +14,7 @@ if len(sys.argv) > 1:
 	print("[*] Scraping Webpage: " + url)
 else:
 	print("[X] Usage: dscraper.py http://google.ca")
+	exit()
 	
 # the credit for this regex:
 # https://stackoverflow.com/questions/62141910/accelerate-2-loops-with-regex-to-find-email-address-on-website
