@@ -1,3 +1,5 @@
+<h1>dead1's Scripting-Dev</h1><br>
+<br>
 <b>bash</b> - Bash Script Folder<br>
 - <B>auto_sshauth.sh</B> - script to generate attempted usernames and banned IPs from server logs every X seconds<br>
 - <B>deadmap.sh</B> - automate nmap host enumeration, then scan and create output files<br>
@@ -20,12 +22,12 @@
 <br>
 
 <b>bufferoverflows</b> - Buffer Overflow PoCs and Vulnerable Apps<br>
-- <B>vuln1-poc.py</B>
-- <B>vuln1.exe</B>
-- <B>vuln2-poc.py</B>
-- <B>vuln2.exe</B>
-- <B>vuln3-poc.py</B>
-- <B>vuln4.exe</B>
+- <B>vuln1-poc.py</B> - solution for vuln1.exe
+- <B>vuln1.exe</B> - runs on port 7001 - Windows 10 x86
+- <B>vuln2-poc.py</B> - solution for vuln2.exe
+- <B>vuln2.exe</B> - runs on port 7002 - Windows 10 x86
+- <B>vuln3-poc.py</B> - solution for vuln2.exe
+- <B>vuln4.exe</B> - runs on port 7003 - Windows 10 x86
 <br> 
 
 <b>c-dev</b> - C Development Folder<br>
