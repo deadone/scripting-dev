@@ -19,19 +19,23 @@
 - <B>wtmp-dump.py</B> - python3 script to read wtmp file and show user logins on linux systems<br>
 <br>
 
+<b>bufferoverflows</b> - Buffer Overflow PoCs and Vulnerable Apps<br>
+- <B>vuln1-poc.py</B>
+- <B>vuln1.exe</B>
+- <B>vuln2-poc.py</B>
+- <B>vuln2.exe</B>
+- <B>vuln3-poc.py</B>
+- <B>vuln4.exe</B>
+<br> 
+
+<b>c-dev</b> - C Development Folder<br>
+- <B>idump.c</B> - hexdump written in c<br>
+<br>
+
 <B>proc-py</B> - Linux Process Management<br>
 - <b>color-pidprocess.py</b> - color version of pidprocess<br>
 - <b>deadlib.py</b> - contains classes and methods for proc-py functionality<br>
 - <b>pidinfo.py</b> - reads proc info on PID<br>
 - <b>pidprocess.py</b> - draws a PID tree with children PIDs branching<br>
 - <b>pocinfo.py</b> - shows use of classes and methods<br>
-<br>
-
-<b>c-dev</b> - C Development Folder<br>
-- <B>idump.c</B> - hexdump written in c<br>
-<br>
-
-<b>other</b> - Useful Notes, etc.</b><br>
-- <B>redteam-quicknotes.txt</B> - red team quick reference<br>
-- <b>vim</b> - vim reference<br>
 <br>
