@@ -1,4 +1,4 @@
-<b>bash</b> - Bash Script Folder<br>
+<b>bash</b> - bash scripting<br>
 - <B>auto_sshauth.sh</B> - script to generate attempted usernames and banned IPs from server logs every X seconds<br>
 - <B>deadmap.sh</B> - automate nmap host enumeration, then scan and create output files<br>
 - <B>deadmap_quikport.sh</B> - quickly scan for machines running specific port.<br>
