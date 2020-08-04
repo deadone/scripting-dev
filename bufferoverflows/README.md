@@ -4,6 +4,6 @@
 - <B>vuln1.exe</B> - runs on port 7001 - Windows 10 x86
 - <B>vuln2-poc.py</B> - solution for vuln2.exe
 - <B>vuln2.exe</B> - runs on port 7002 - Windows 10 x86
-- <B>vuln3-poc.py</B> - solution for vuln2.exe
+- <B>vuln3-poc.py</B> - solution for vuln3.exe
 - <B>vuln3.exe</B> - runs on port 7003 - Windows 10 x86
 <br> 
