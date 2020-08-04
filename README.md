@@ -1,4 +1,4 @@
-<h1>[*] dead1's Scripting-Dev</h1>
+<h1>[X] dead1's Scripting-Dev</h1>
 <h3>
   <img src="http://www.hackthebox.eu/badge/image/205060" alt="Hack The Box"><br>
   https://www.dead1.net<br>
