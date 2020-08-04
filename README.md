@@ -2,7 +2,7 @@
 <h3>
   <img src="http://www.hackthebox.eu/badge/image/205060" alt="Hack The Box"><br>
   https://www.dead1.net<br>
-  an assortment of scripts and other useful junk I wrote<br></h3>
+  an assortment of scripts and other junk I wrote<br></h3>
 
 <b>bash</b> - bash scripting<br>
 - <B>auto_sshauth.sh</B> - script to generate attempted usernames and banned IPs from server logs every X seconds<br>
