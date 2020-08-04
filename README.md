@@ -15,7 +15,7 @@
 - <B>timesync.sh</B> - stand-alone program to execute commands or run scripts at a given time<br>
 <br>
 
-<b>py-dev</b> - python programming<br>
+<b>py-dev</b> - python programming
 - <B>deadscrape.py</B> - python3 script to scrape emails from webpages
 - <B>py2BOFtemplate.py</B> - python2 buffer overflow template made for quick exploitation<br>
 - <B>py3BOFtemplate.py</B> - python3 buffer overflow template made for quick exploitation<br>
