@@ -3,7 +3,7 @@
   an assortment of scripts and other useful junk<br>
   <i>i like infosec...<br></i></h3>
   
-<b>bash</b> - Bash Script Folder<br>
+<b>bash</b> - bash scripting<br>
 - <B>auto_sshauth.sh</B> - script to generate attempted usernames and banned IPs from server logs every X seconds<br>
 - <B>deadmap.sh</B> - automate nmap host enumeration, then scan and create output files<br>
 - <B>deadmap_quikport.sh</B> - quickly scan for machines running specific port.<br>
@@ -15,7 +15,7 @@
 - <B>timesync.sh</B> - stand-alone program to execute commands or run scripts at a given time<br>
 <br>
 
-<b>py-dev</b> - Python Development Folder<br>
+<b>py-dev</b> - python programming<br>
 - <B>deadscrape.py</B>> - python3 script to scrape emails from webpages
 - <B>py2BOFtemplate.py</B> - python2 buffer overflow template made for quick exploitation<br>
 - <B>py3BOFtemplate.py</B> - python3 buffer overflow template made for quick exploitation<br>
@@ -24,7 +24,7 @@
 - <B>wtmp-dump.py</B> - python3 script to read wtmp file and show user logins on linux systems<br>
 <br>
 
-<b>bufferoverflows</b> - Buffer Overflow PoCs and Vulnerable Apps<br>
+<b>bufferoverflows</b> - buffer overflows PoC and vulnerable apps<br>
 - <B>vuln1-poc.py</B> - solution for vuln1.exe
 - <B>vuln1.exe</B> - runs on port 7001 - Windows 10 x86
 - <B>vuln2-poc.py</B> - solution for vuln2.exe
@@ -33,11 +33,11 @@
 - <B>vuln4.exe</B> - runs on port 7003 - Windows 10 x86
 <br> 
 
-<b>c-dev</b> - C Development Folder<br>
+<b>c-dev</b> - c programming<br>
 - <B>idump.c</B> - hexdump written in c<br>
 <br>
 
-<B>proc-py</B> - Linux Process Management<br>
+<B>proc-py</B> - linux proces monitoring written in python3<br>
 - <b>color-pidprocess.py</b> - color version of pidprocess<br>
 - <b>deadlib.py</b> - contains classes and methods for proc-py functionality<br>
 - <b>pidinfo.py</b> - reads proc info on PID<br>
