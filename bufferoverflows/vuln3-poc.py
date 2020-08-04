@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # Tested on: Windows 10 x86
 # Author: dead1
-# vulnapp3.exe
+# vuln3.exe
 
 import socket
 
