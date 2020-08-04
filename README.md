@@ -1,5 +1,5 @@
-<center><img=other/dead.jpg"></center>
-<h1>[*] dead1's Scripting-Dev</h1>
+<h1><center><img src=/other/dead.jpg alt="Dead Rabbit" width="100" height="100"/><center>  
+  <br>[*] dead1's Scripting-Dev</h1>
 <h3>https://www.dead1.net<br>
   an assortment of scripts and other useful junk<br>
   <i>i like infosec...<br></i></h3>
