@@ -1,7 +1,9 @@
 #!/bin/python3
+# date: 2020-08-08
 # author: dead1
-# quickly generate base64
-# encoded combination wordlists
+# purpose: quickly generate base64 encoded combination wordlists
+# generate simple strings for bruteforcing weblogin popups
+# works well as a wordlist input for burpsuite against tomcat and windows
 
 import base64
 
