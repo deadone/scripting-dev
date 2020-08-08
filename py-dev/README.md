@@ -1,4 +1,5 @@
 <b>py-dev</b> - python programming<br>
+- <B>base64-combo.py</B> - python3 script to generate base64 encoded combinations for login portals
 - <B>deadscrape.py</B> - python3 script to scrape emails from webpages
 - <B>py2bof-template.py</B> - python2 buffer overflow template made for quick exploitation<br>
 - <B>py3bof-template.py</B> - python3 buffer overflow template made for quick exploitation<br>
