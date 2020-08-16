@@ -7,7 +7,7 @@
 - <B>deadmap_vuln.sh</B> - quick script generated for my OSCP to quickly scan for vulns in a repeatable manner<br>
 - <B>func_timesync.sh</B> - function to sync script and execution run times<br>
 - <B>quick_linux_enum.sh</B> - quick script to upload and generate priv esc on linux<br>
-- <B>rpc-spray-enum.sh</B> - quick script to enum users on RPC
+- <B>rpc-spray-userenum.sh</B> - quick script to enum users on RPC
 - <B>sshauth.sh</B> - script to generate attempted usernames and banned IPs from server logs<br>
 - <B>timesync.sh</B> - stand-alone program to execute commands or run scripts at a given time<br>
 <br>
