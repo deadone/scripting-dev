@@ -1,5 +1,6 @@
 <b>bash</b> - bash scripting<br>
 - <B>auto_sshauth.sh</B> - script to generate attempted usernames and banned IPs from server logs every X seconds<br>
+- <B>colour-codes.sh</B> - script to quickly list bash colour codes for outputs
 - <B>deadmap.sh</B> - automate nmap host enumeration, then scan and create output files<br>
 - <B>deadmap_quikport.sh</B> - quickly scan for machines running specific port.<br>
 - <B>deadmap_summary.sh</B> - quickly create summary for host enumeration<br>
