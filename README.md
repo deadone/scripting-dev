@@ -11,6 +11,7 @@
 - <B>func_timesync.sh</B> - function to sync script and execution run times<br>
 - <B>quick_linux_enum.sh</B> - quick script to upload and generate priv esc on linux<br>
 - <B>rpc_spray_userenum.sh</B> - quick script to enum users on RPC
+- <B>smb-bruteforce.sh</B> - simple SMB bruteforce script
 - <B>sshauth.sh</B> - script to generate attempted usernames and banned IPs from server logs<br>
 - <B>timesync.sh</B> - stand-alone program to execute commands or run scripts at a given time<br>
 <br>
