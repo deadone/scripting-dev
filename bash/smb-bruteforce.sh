@@ -3,12 +3,12 @@
 # smb-bruteforce.sh
 # quick script to bruteforce smb
 
-# username file
-username=support
+## setup
+username=david
 userfile=top1k.txt
-host=10.10.10.192
-share=forensic
-workgroup=BLACKFIELD
+host=10.10.10.10
+share=C$
+workgroup=WORKGROUP
 
 count=`wc -w ${userfile} | cut -d " " -f 1`
 
