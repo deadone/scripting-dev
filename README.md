@@ -1,5 +1,5 @@
 <h1>[X] dead1's Scripting-Dev</h1>
-<h3>an assortment of scripts I wrote and other junk<br></h3>
+<h3>an assortment of infosec scripts I wrote and other junk<br></h3>
 
 <b>bash</b> - bash scripting<br>
 - <B>auto_sshauth.sh</B> - script to generate attempted usernames and banned IPs from server logs every X seconds<br>
