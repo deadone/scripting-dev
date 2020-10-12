@@ -1,7 +1,6 @@
 #!/usr/bin/python
 # Tested on: Windows 10 x86
 # Author: dead1
-# vuln2.exe
 # badchars = \x00 \x3b \x45
 # 0x1480113D JMP ESP
 import socket
