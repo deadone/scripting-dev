@@ -3,7 +3,7 @@ using System.Net;
 using System.Reflection;
 using System.Runtime.InteropServices;
 
-namespace AmsiTest
+namespace deadAmsi
 {
     class Program
     {
