@@ -16,6 +16,11 @@
 - <B>timesync.sh</B> - stand-alone program to execute commands or run scripts at a given time<br>
 <br>
 
+<b>C#</b> - C# programs and services
+- <B>deadAmsi.cs</B> - programs to bypass AMSI and allow downloadable malware
+- <b>deadService.exe</b> - service program utilized to gain SYSTEM or persistence
+<br>
+
 <b>py-dev</b> - python programming<br>
 - <B>base64-combo.py</B> - python3 script to generate base64 encoded combinations for login portals
 - <B>deadscrape.py</B> - python3 script to scrape emails from webpages
