@@ -1,6 +1,6 @@
 #!/usr/bin/python2
 ## author: dead1
-## python2 winx86 buffer overflow template
+## python2 buffer overflow template
 ## OSCP Template
 import socket
 
