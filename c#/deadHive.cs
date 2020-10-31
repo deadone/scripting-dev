@@ -1,7 +1,7 @@
 using System;
 using System.IO;
 
-namespace ntregsharp
+namespace deadHive
 {
 	public class RegistryHive
 	{
