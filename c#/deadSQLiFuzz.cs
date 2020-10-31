@@ -4,7 +4,7 @@ using System.Text;
 using System.Net;
 using System.Net.Sockets;
 
-namespace ch2_sqli_fuzzer
+namespace deadSQliFuzz
 {
 	class MainClass
 	{
