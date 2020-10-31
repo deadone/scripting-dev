@@ -1,4 +1,4 @@
-<h1>[X] dead1's Scripting-Dev</h1>
+<h1>[X] dead1's scripting-dev</h1>
 <h3>an assortment of scripts I wrote and junk I found useful<br></h3>
 
 <b>bash</b> - bash scripting<br>
