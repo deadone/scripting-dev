@@ -17,6 +17,17 @@
 - **sshauth.sh** - script to generate attempted usernames and banned IPs from server logs
 - **timesync.sh** - stand-alone program to execute commands or run scripts at a given time
 
+## **bufferoverflows**
+- **ASXmp3-conv-POC.py** - PoC for local priv esc through ASX-MP3 converter
+- **py2bof-template.py** - python2 buffer overflow template made for quick windows x86 exploitation
+- **py3bof-template.py** - python3 buffer overflow template made for quick windows x86 exploitation
+- **vuln1-poc.py** - solution for a CTF vuln challenge.
+- **vuln2-poc.py** - solution for a CTF vuln challenge.
+- **vuln3-poc.py** - solution for a CTF vuln challenge.
+
+## **C**
+- **idump.c** - hexdump written in c
+
 ## **C#**
 - **deadAmsi.cs** - programs to bypass AMSI and allow downloadable c2 shells
 - **deadSQLiFuzz.cs** - sqli fuzzer
@@ -34,14 +45,3 @@
 - **pocinfo.py** - shows use of classes and methods
 - **string-sort.py** - python3 script to fabricate random strings and allow substring indexing for buffer overflows
 - **wtmp-dump.py** - python3 script to read wtmp file and show user logins on linux systems
-
-## **bufferoverflows**
-- **ASXmp3-conv-POC.py** - PoC for local priv esc through ASX-MP3 converter
-- **py2bof-template.py** - python2 buffer overflow template made for quick windows x86 exploitation
-- **py3bof-template.py** - python3 buffer overflow template made for quick windows x86 exploitation
-- **vuln1-poc.py** - solution for a CTF vuln challenge.
-- **vuln2-poc.py** - solution for a CTF vuln challenge.
-- **vuln3-poc.py** - solution for a CTF vuln challenge.
-
-## **C**
-- **idump.c** - hexdump written in c
