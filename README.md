@@ -42,8 +42,8 @@
 - **idump.c** - hexdump written in c
 
 ## proc-py - linux proces monitoring written in python3
-- **color-pidprocess.py</b> - color version of pidprocess
-- **deadlib.py</b> - contains classes and methods for proc-py functionality
-- **pidinfo.py</b> - reads proc info on PID
-- **pidprocess.py</b> - draws a PID tree with children PIDs branching
-- **pocinfo.py</b> - shows use of classes and methods
+- **color-pidprocess.py** - color version of pidprocess
+- **deadlib.py** - contains classes and methods for proc-py functionality
+- **pidinfo.py** - reads proc info on PID
+- **pidprocess.py** - draws a PID tree with children PIDs branching
+- **pocinfo.py** - shows use of classes and methods
