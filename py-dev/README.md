@@ -1,7 +1,6 @@
-<b>py-dev</b> - python programming<br>
-- <B>base64-combo.py</B> - python3 script to generate base64 encoded combinations for login portals
-- <B>deadscrape.py</B> - python3 script to scrape emails from webpages
-- <B>pydump.py</B> - hexdump written in python3<br>
-- <B>string-sort.py</B> - python3 script to fabricate random strings and allow substring indexing for buffer overflows<br>
-- <B>wtmp-dump.py</B> - python3 script to read wtmp file and show user logins on linux systems<br>
-<br>
+## **python**
+- **base64-combo.py** - python3 script to generate base64 encoded combinations for login portals
+- **deadscrape.py** - python3 script to scrape emails from webpages
+- **pydump.py** - hexdump written in python3
+- **string-sort.py** - python3 script to fabricate random strings and allow substring indexing for buffer overflows
+- **wtmp-dump.py** - python3 script to read wtmp file and show user logins on linux systems
