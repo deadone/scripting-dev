@@ -1,6 +1,8 @@
 <b>bash</b> - bash scripting<br>
 - <B>auto_sshauth.sh</B> - script to generate attempted usernames and banned IPs from server logs every X seconds<br>
 - <B>colour_codes.sh</B> - script to quickly list bash colour codes for outputs
+- <B>covenant-run.sh</B> - script to run covenant
+- <B>covenant-setup.sh</B> - script to install covenant
 - <B>deadmap.sh</B> - automate nmap host enumeration, then scan and create output files<br>
 - <B>deadmap_quikport.sh</B> - quickly scan for machines running specific port.<br>
 - <B>deadmap_summary.sh</B> - quickly create summary for host enumeration<br>
