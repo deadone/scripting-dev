@@ -1,53 +1,49 @@
-<h1>[X] dead1's scripting-dev</h1>
-<h3>an assortment of scripts I wrote and junk I found useful<br></h3>
+# [X] **dead1's scripting-dev**
+### an assortment of scripts I wrote and junk I found useful
 
-<b>bash</b> - bash scripting<br>
-- <B>auto_sshauth.sh</B> - script to generate attempted usernames and banned IPs from server logs every X seconds<br>
-- <B>colour_codes.sh</B> - script to quickly list bash colour codes for outputs
-- <B>deadmap.sh</B> - automate nmap host enumeration, then scan and create output files<br>
-- <B>deadmap_quikport.sh</B> - quickly scan for machines running specific port.<br>
-- <B>deadmap_summary.sh</B> - quickly create summary for host enumeration<br>
-- <B>deadmap_vuln.sh</B> - quick script generated for my OSCP to quickly scan for vulns in a repeatable manner<br>
-- <B>func_timesync.sh</B> - function to sync script and execution run times<br>
-- <B>quick_linux_enum.sh</B> - quick script to upload and generate priv esc on linux<br>
-- <B>rpc_spray_userenum.sh</B> - quick script to enum users on RPC
-- <B>smb-bruteforce.sh</B> - simple SMB bruteforce script
-- <B>sshauth.sh</B> - script to generate attempted usernames and banned IPs from server logs<br>
-- <B>timesync.sh</B> - stand-alone program to execute commands or run scripts at a given time<br>
-<br>
+## **bash**
+- **auto_sshauth.sh** - script to generate attempted usernames and banned IPs from server logs every X seconds<br>
+- **colour_codes.sh** - script to quickly list bash colour codes for outputs
+- **covenant-run.sh** - script to run covenant
+- **covenant-setup.sh** - script to install covenant
+- **deadmap.sh** - automate nmap host enumeration, then scan and create output files
+- **deadmap_quikport.sh** - quickly scan for machines running specific port
+- **deadmap_summary.sh** - quickly create summary for host enumeration
+- **deadmap_vuln.sh** - quick script generated for my OSCP to quickly scan for vulns in a repeatable manner<br>
+- **func_timesync.sh** - function to sync script and execution run times
+- **quick_linux_enum.sh** - quick script to upload and generate priv esc on linux
+- **rpc_spray_userenum.sh** - quick script to enum users on RPC
+- **smb-bruteforce.sh** - simple SMB bruteforce script
+- **sshauth.sh** - script to generate attempted usernames and banned IPs from server logs
+- **timesync.sh** - stand-alone program to execute commands or run scripts at a given time
 
-<b>C#</b> - programs and services
-- <B>deadAmsi.cs</B> - programs to bypass AMSI and allow downloadable c2 shells
-- <B>deadSQLiFuzz.cs</B> - sqli fuzzer
-- <b>deadService.cs</b> - service program utilized to gain SYSTEM or persistence
-- <b>deadShell.cs</b> - simple shell that evades most AV
-<br>
+## **C#**
+- **deadAmsi.cs** - programs to bypass AMSI and allow downloadable c2 shells
+- **deadSQLiFuzz.cs** - sqli fuzzer
+- **deadService.cs** - service program utilized to gain SYSTEM or persistence
+- **deadShell.cs** - simple shell that evades most AV
 
-<b>py-dev</b> - python programming<br>
-- <B>base64-combo.py</B> - python3 script to generate base64 encoded combinations for login portals
-- <B>deadscrape.py</B> - python3 script to scrape emails from webpages
-- <B>pydump.py</B> - hexdump written in python3<br>
-- <B>string-sort.py</B> - python3 script to fabricate random strings and allow substring indexing for buffer overflows<br>
-- <B>wtmp-dump.py</B> - python3 script to read wtmp file and show user logins on linux systems<br>
-<br>
+## **python**
+- **base64-combo.py** - python3 script to generate base64 encoded combinations for login portals
+- **deadscrape.py** - python3 script to scrape emails from webpages
+- **pydump.py** - hexdump written in python3
+- **string-sort.py** - python3 script to fabricate random strings and allow substring indexing for buffer overflows
+- **wtmp-dump.py** - python3 script to read wtmp file and show user logins on linux systems
 
-<b>bufferoverflows</b> - buffer overflows PoC and vulnerable apps<br>
-- <B>ASXmp3-conv-POC.py</B> - PoC for local priv esc through ASX-MP3 converter
-- <B>py2bof-template.py</B> - python2 buffer overflow template made for quick windows x86 exploitation<br>
-- <B>py3bof-template.py</B> - python3 buffer overflow template made for quick windows x86 exploitation<br>
-- <B>vuln1-poc.py</B> - solution for a CTF vuln challenge.
-- <B>vuln2-poc.py</B> - solution for a CTF vuln challenge.
-- <B>vuln3-poc.py</B> - solution for a CTF vuln challenge.
-<br>  
+## **bufferoverflows**
+- **ASXmp3-conv-POC.py** - PoC for local priv esc through ASX-MP3 converter
+- **py2bof-template.py** - python2 buffer overflow template made for quick windows x86 exploitation
+- **py3bof-template.py** - python3 buffer overflow template made for quick windows x86 exploitation
+- **vuln1-poc.py** - solution for a CTF vuln challenge.
+- **vuln2-poc.py** - solution for a CTF vuln challenge.
+- **vuln3-poc.py** - solution for a CTF vuln challenge.
 
-<b>c-dev</b> - c programming<br>
-- <B>idump.c</B> - hexdump written in c<br>
-<br>
+## **c**
+- **idump.c** - hexdump written in c
 
-<B>proc-py</B> - linux proces monitoring written in python3<br>
-- <b>color-pidprocess.py</b> - color version of pidprocess<br>
-- <b>deadlib.py</b> - contains classes and methods for proc-py functionality<br>
-- <b>pidinfo.py</b> - reads proc info on PID<br>
-- <b>pidprocess.py</b> - draws a PID tree with children PIDs branching<br>
-- <b>pocinfo.py</b> - shows use of classes and methods<br>
-<br>
+## proc-py - linux proces monitoring written in python3
+- **color-pidprocess.py</b> - color version of pidprocess
+- **deadlib.py</b> - contains classes and methods for proc-py functionality
+- **pidinfo.py</b> - reads proc info on PID
+- **pidprocess.py</b> - draws a PID tree with children PIDs branching
+- **pocinfo.py</b> - shows use of classes and methods
