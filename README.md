@@ -1,5 +1,5 @@
 # [X] **dead1's scripting-dev**
-### an assortment of scripts I wrote and junk I found useful
+### *an assortment of scripts I wrote and junk I found useful*
 
 ## **bash**
 - **auto_sshauth.sh** - script to generate attempted usernames and banned IPs from server logs every X seconds<br>
