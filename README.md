@@ -38,7 +38,7 @@
 - **vuln2-poc.py** - solution for a CTF vuln challenge.
 - **vuln3-poc.py** - solution for a CTF vuln challenge.
 
-## **c**
+## **C**
 - **idump.c** - hexdump written in c
 
 ## proc-py - linux proces monitoring written in python3
