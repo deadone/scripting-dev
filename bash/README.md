@@ -1,4 +1,4 @@
-<b>bash</b> - bash scripting<br>
+##**bash**
 - <B>auto_sshauth.sh</B> - script to generate attempted usernames and banned IPs from server logs every X seconds<br>
 - <B>colour_codes.sh</B> - script to quickly list bash colour codes for outputs
 - <B>covenant-run.sh</B> - script to run covenant
