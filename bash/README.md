@@ -1,15 +1,16 @@
 ## **bash**
-- **auto_sshauth.sh** - script to generate attempted usernames and banned IPs from server logs every X seconds<br>
+- **auto_sshauth.sh** - script to generate attempted usernames and banned IPs from server logs every X seconds
 - **colour_codes.sh** - script to quickly list bash colour codes for outputs
+- **covenant-refresh.sh** - script to backup current covenant folder and redownload and build new installation
 - **covenant-run.sh** - script to run covenant
 - **covenant-setup.sh** - script to install covenant
-- **deadmap.sh** - automate nmap host enumeration, then scan and create output files<br>
-- **deadmap_quikport.sh** - quickly scan for machines running specific port.<br>
-- **deadmap_summary.sh** - quickly create summary for host enumeration<br>
+- **deadmap.sh** - automate nmap host enumeration, then scan and create output files
+- **deadmap_quikport.sh** - quickly scan for machines running specific port.
+- **deadmap_summary.sh** - quickly create summary for host enumeration
 - **deadmap_vuln.sh** - quick script generated for my OSCP to quickly scan for vulns in a repeatable manner<br>
-- **func_timesync.sh** - function to sync script and execution run times<br>
-- **quick_linux_enum.sh** - quick script to upload and generate priv esc on linux<br>
+- **func_timesync.sh** - function to sync script and execution run times
+- **quick_linux_enum.sh** - quick script to upload and generate priv esc on linux
 - **rpc_spray_userenum.sh** - quick script to enum users on RPC
 - **smb-bruteforce.sh** - simple SMB bruteforce script
-- **sshauth.sh** - script to generate attempted usernames and banned IPs from server logs<br>
-- **timesync.sh** - stand-alone program to execute commands or run scripts at a given time<br>
+- **sshauth.sh** - script to generate attempted usernames and banned IPs from server logs
+- **timesync.sh** - stand-alone program to execute commands or run scripts at a given time
