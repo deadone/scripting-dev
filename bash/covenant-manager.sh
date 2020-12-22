@@ -3,7 +3,9 @@
 # 2020-12-21
 # manage covenant installs
 # install / backup / run / uninstall
-# to add: uninstall
+# to add:
+# install arm64 & install docker
+# & unistall
 
 # colour codes
 DRED='\033[1;31m' #red
