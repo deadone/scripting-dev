@@ -11,7 +11,7 @@ LGRN='\033[0;32m' #green
 NC='\033[0m' #color off
 
 func_run() {
-    echo -e "\n[*] Starting Covenant."
+    echo -e "[*] Starting Covenant."
     cd /opt/Covenant/Covenant
     echo -e "${DRED}[!] Press Ctrl+C to stop.${NC}"
     dotnet run
@@ -19,7 +19,7 @@ func_run() {
 }
 
 func_install() {
-    echo -e "\n[*] Installing Covenant."
+    echo -e "[*] Installing Covenant."
     cd /opt/
     wget -q https://packages.microsoft.com/config/ubuntu/19.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
     sudo dpkg -i packages-microsoft-prod.deb &>/dev/null
@@ -44,16 +44,11 @@ func_install() {
 }
 
 func_refresh() {
-    echo -ne "${DRED}\n[!] Do you want to backup existing installation? (y/n):${NC} "
+    echo -ne "${DRED}[!] Do you want to backup existing installation? (y/n):${NC} "
     read backup_q
     if [ $backup_q = 'y' ]
     then
-            echo -ne "${DRED}[!] Job name?:${NC} "
-            read the_job
-            the_date=`date +"%d-%m-%y"`
-            echo -e "[*] Compressing existing installation of Covenant."
-            tar -czvf  /tmp/Covenant-${the_job}-${the_date}.tar.gz /opt/Covenant &>/dev/null
-            echo -e "[*] Backup of old installation located @${LGRN} /tmp/Covenant-${the_job}-${the_date}${NC}"
+        func_createbackup
     fi
     rm -rf /opt/Covenant
     echo -e "[*] Downloading fresh installation."
@@ -70,8 +65,17 @@ func_refresh() {
     fi
 }
 
+func_createbackup() {
+    echo -ne "${DRED}[!] Job name:${NC} "
+    read the_job
+    the_date=`date +"%d-%m-%y"`
+    echo -e "[*] Compressing existing installation of Covenant."
+    tar -czvf  /tmp/Covenant-${the_job}-${the_date}.tar.gz /opt/Covenant &>/dev/null
+    echo -e "[*] Backup of installation located @${LGRN} /tmp/Covenant-${the_job}-${the_date}${NC}"
+}
+
 func_delbackup() {
-    echo -e "\n[*] Deleting Backups."
+    echo -e "[*] Deleting Backups."
     rm -rf /tmp/Covenant-*
 }
 
@@ -91,9 +95,10 @@ fi
 echo -e "${DRED}-= Covenant Manager =-${NC}"
 echo -e " Installed: \t${installed}"
 echo -e " # Backups: \t${num_backups}"
-echo -e "\n [${LGRN}1${NC}] Run\n [${LGRN}2${NC}] Install\n [${LGRN}3${NC}] Reinstall/Backup${NC}\n [${LGRN}4${NC}] Delete Backups"
+echo -e "\n [${LGRN}1${NC}] Run\n [${LGRN}2${NC}] Install\n [${LGRN}3${NC}] Fresh Install${NC}\n [${LGRN}4${NC}] Create Backup\n [${LGRN}5${NC}] Delete Backups\n [${LGRN}6${NC}] Exit"
 echo -ne "${DRED}\nSelection:${NC} "
 read the_choice
+echo -e ""
 
 case $the_choice in
     1)
@@ -109,11 +114,20 @@ case $the_choice in
         ;;
 
     4)
+        func_createbackup
+        ;;
+
+    5)
         func_delbackup
         ;;
 
+    6)
+        echo -e "${DRED}\n[!] Exiting.${NC}"
+        exit
+        ;;
+
     *)
-        echo -e "${DRED}Invalid Selection.${NC}"
+        echo -e "${DRED}[X] Invalid Selection.${NC}"
         exit
         ;;
 esac 
