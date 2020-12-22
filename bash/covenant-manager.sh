@@ -79,17 +79,17 @@ func_delbackup() {
     rm -rf /tmp/Covenant-*
 }
 
+if [ "$EUID" -ne 0 ]
+  then echo "${DRED}[x] Run as root.${NC}"
+  exit
+fi
+
 current=$PWD
 num_backups=`ls /tmp/ | grep "Covenant" | wc | cut -d " " -f 7`
 installed="${DRED}False${NC}"
 if [ -d "/opt/Covenant" ]
 then
     installed="${LGRN}True${NC}"
-fi
-
-if [ "$EUID" -ne 0 ]
-  then echo "${DRED}[x] Run as root.${NC}"
-  exit
 fi
 
 echo -e "${DRED}-= Covenant Manager =-${NC}"
