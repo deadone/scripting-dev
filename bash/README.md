@@ -1,9 +1,7 @@
 ## **bash**
 - **auto_sshauth.sh** - script to generate attempted usernames and banned IPs from server logs every X seconds
 - **colour_codes.sh** - script to quickly list bash colour codes for outputs
-- **covenant-refresh.sh** - script to backup current covenant folder and redownload and build new installation
-- **covenant-run.sh** - script to run covenant
-- **covenant-setup.sh** - script to install covenant
+- **covenant-manager.sh** - script to install, reinstall, backup, and run Covenant
 - **deadmap.sh** - automate nmap host enumeration, then scan and create output files
 - **deadmap_quikport.sh** - quickly scan for machines running specific port.
 - **deadmap_summary.sh** - quickly create summary for host enumeration
