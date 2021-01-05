@@ -38,6 +38,7 @@
 - **color-pidprocess.py** - color version of pidprocess
 - **deadlib.py** - contains classes and methods for proc-py functionality
 - **deadscrape.py** - python3 script to scrape emails from webpages
+- **ftptest.py** - python script to test SSL and anon login on FTP
 - **pydump.py** - hexdump written in python3
 - **pidinfo.py** - reads proc info on PID
 - **pidprocess.py** - draws a PID tree with children PIDs branching
