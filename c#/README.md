@@ -3,4 +3,4 @@
 - **deadSQLiFuzz.cs** - sqli fuzzer
 - **deadService.cs** - service program utilized to gain SYSTEM or persistence
 - **deadShell.cs** - simple shell that evades most AV
-- **newdead.cs** - simple AMSI obfuscation technique
+- **newDead.cs** - simple AMSI obfuscation technique
